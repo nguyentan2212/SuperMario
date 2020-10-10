@@ -195,9 +195,6 @@ void Game::ProcessKeyboard()
 		}
 	}
 
-	keyHandler->KeyState((BYTE*)&keyStates);
-
-
 
 	// Collect all buffered events
 	DWORD dwElements = KEYBOARD_BUFFER_SIZE;
@@ -209,13 +206,5 @@ void Game::ProcessKeyboard()
 	}
 
 	// Scan through all buffered events, check if the key is pressed or released
-	for (DWORD i = 0; i < dwElements; i++)
-	{
-		int KeyCode = keyEvents[i].dwOfs;
-		int KeyState = keyEvents[i].dwData;
-		if ((KeyState & 0x80) > 0)
-			keyHandler->OnKeyDown(KeyCode);
-		else
-			keyHandler->OnKeyUp(KeyCode);
-	}
+	keyHandler->Update(keyEvents, dwElements);
 }

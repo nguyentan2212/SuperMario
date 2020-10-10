@@ -23,7 +23,7 @@ void LoadResource();
 int Run();
 
 // Game object
-Mario* mario = new Mario(600, 50, 0);
+Mario* mario = new Mario(200, 200, 0);
 YellowBrick* brick = new YellowBrick(600, 100);
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,

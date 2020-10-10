@@ -8,6 +8,8 @@ public:
 	void SetVector(Vector2D vec) { this->x = vec.x; this->y = vec.y; }	
 	float GetX() { return x; }
 	float GetY() { return y; }
+	void SetX(float x) { this->x = x; }
+	void SetY(float y) { this->y = y; }
 	Vector2D operator+(const Vector2D& vec);
 	Vector2D operator-(const Vector2D& vec);
 	Vector2D operator*(const float f);	
