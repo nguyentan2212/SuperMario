@@ -17,13 +17,9 @@
 #include <d3dx9.h>
 
 #include "Game.h"
-#include "Sprite.h"
 #include "Debug.h"
-#include "AnimationFrame.h"
 #include "Animation.h"
 #include "TextureManager.h"
-#include "SpriteManager.h"
 #include "Mario.h"
-#include "YellowBrick.h"
 #include "KeyHandler.h"
 #include "MarioKeyHandler.h"

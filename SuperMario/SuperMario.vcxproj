@@ -146,7 +146,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="GameDefine.h" />
     <ClInclude Include="AnimationFrame.h" />
+    <ClInclude Include="AnimationManager.h" />
     <ClInclude Include="Debug.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Game.h" />
@@ -161,24 +163,26 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Vector2D.h" />
-    <ClInclude Include="YellowBrick.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="AnimationManager.cpp" />
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Mario.cpp" />
     <ClCompile Include="MarioKeyHandler.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="SpriteManager.cpp" />
     <ClCompile Include="SuperMario.cpp" />
+    <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Vector2D.cpp" />
-    <ClCompile Include="YellowBrick.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="SuperMario.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="background.png" />
     <Image Include="mario.png" />
     <Image Include="misc.png" />
     <Image Include="small.ico" />

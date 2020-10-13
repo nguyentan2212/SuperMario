@@ -10,7 +10,7 @@ public:
 	void Add(LPSPRITE sprite, DWORD time = 0);
 	void Render(float x, float y);
 	void Render(Vector2D vec) { Render(vec.GetX(), vec.GetY()); }
-
+	
 private:
 	std::vector<LPANIMATIONFRAME> frames;
 	DWORD lastFrameTime;

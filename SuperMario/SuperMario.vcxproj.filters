@@ -57,13 +57,16 @@
     <ClInclude Include="Vector2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="YellowBrick.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="KeyHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MarioKeyHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameDefine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -92,10 +95,16 @@
     <ClCompile Include="Vector2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="YellowBrick.cpp">
+    <ClCompile Include="MarioKeyHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MarioKeyHandler.cpp">
+    <ClCompile Include="AnimationManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -115,6 +124,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="misc.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="background.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

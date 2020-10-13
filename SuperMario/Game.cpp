@@ -63,6 +63,10 @@ void Game::Init(HWND hWnd, HINSTANCE hInstance)
 	
 	// Initialize sprite helper from Direct3DX helper library
 	D3DXCreateSprite(d3ddv, &spriteHandler);
+
+	D3DXMATRIX matScale;
+	D3DXMatrixScaling(&matScale, 3.0f, 3.0f, .0f);
+	spriteHandler->SetTransform(&matScale);
 }
 
 void Game::Draw(float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom)

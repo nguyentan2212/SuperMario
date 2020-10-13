@@ -1,6 +1,3 @@
-﻿  Mario.cpp
+﻿  MarioKeyHandler.cpp
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-C:\Users\ASUS\source\repos\SuperMario\SuperMario\Game.h(8,1): warning C4005: 'DIRECTINPUT_VERSION': macro redefinition
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\dinput.h(48): message : see previous definition of 'DIRECTINPUT_VERSION'
-C:\Users\ASUS\source\repos\SuperMario\SuperMario\Mario.cpp(25,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   SuperMario.vcxproj -> C:\Users\ASUS\source\repos\SuperMario\x64\Debug\SuperMario.exe

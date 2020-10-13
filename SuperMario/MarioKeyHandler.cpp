@@ -19,7 +19,15 @@ void MarioKeyHandler::OnKeyDown(int KeyCode)
 void MarioKeyHandler::OnKeyUp(int KeyCode)
 {
 	DebugOut(L"[INFO] KeyUp: %d\n", KeyCode);
-	mario->SetState(MARIO_STATE_IDLE);
+	if (mario->GetState() == MARIO_STATE_JUMP)
+	{
+		mario->SetState(MARIO_STATE_FALL);
+	}
+	else if (mario->GetState() != MARIO_STATE_FALL)
+	{
+		mario->SetState(MARIO_STATE_IDLE);
+	}
+	
 }
 
 void MarioKeyHandler::Update(DIDEVICEOBJECTDATA* keyEvents, DWORD dwElements)

@@ -3,10 +3,11 @@
 
 #include "framework.h"
 #include "SuperMario.h"
+#include "SpriteManager.h"
 
 #define MAX_LOADSTRING 100
-#define GAME_WIDTH 800
-#define GAME_HEIGHT 600
+#define GAME_WIDTH 780
+#define GAME_HEIGHT 614
 #define FRAME_RATE 100
 #define BACKGROUND_COLOR D3DCOLOR_XRGB(255, 255, 255)
 #define LPTEXTURE LPDIRECT3DTEXTURE9
@@ -23,9 +24,8 @@ void LoadResource();
 int Run();
 
 // Game object
-Mario* mario = new Mario(200, 200, 0);
-YellowBrick* brick = new YellowBrick(600, 100);
-
+Mario* mario = new Mario(0, 150, 0);
+GameObject* background = new GameObject(0, 0);
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	_In_opt_ HINSTANCE hPrevInstance,
 	_In_ LPWSTR    lpCmdLine,
@@ -121,72 +121,17 @@ void LoadTextures()
 
 	textureManager->AddTexture(100, game->LoadTexture(L"mario.png", D3DCOLOR_XRGB(0, 136, 255)));
 	textureManager->AddTexture(101, game->LoadTexture(L"misc.png", D3DCOLOR_XRGB(176, 224, 248, 255)));
+	textureManager->AddTexture(102, game->LoadTexture(L"background.png", BLACK_BRUSH));
 }
 
 void LoadSprites()
 {
-	TextureManager* textureManager = TextureManager::GetInstance();
 	SpriteManager* spriteManager = SpriteManager::GetInstance();
-
-	// Mario texture
-	LPTEXTURE mario = textureManager->GetTexture(100);
-	
-	// Mario run to right
-	spriteManager->AddSprite(10001, 246, 154, 259, 181, mario);
-	spriteManager->AddSprite(10002, 275, 154, 290, 181, mario);
-	spriteManager->AddSprite(10003, 304, 154, 321, 181, mario);
-
-	// Mario run to left
-	spriteManager->AddSprite(10004, 186, 154, 199, 181, mario);
-	spriteManager->AddSprite(10005, 155, 154, 170, 181, mario);
-	spriteManager->AddSprite(10006, 125, 154, 140, 181, mario);
-
-	// Stone block's texture 
-	LPTEXTURE yellowBrickTex = textureManager->GetTexture(101);
-	// Stone block sprite
-	spriteManager->AddSprite(10101, 300, 135, 317, 152, yellowBrickTex);
-	spriteManager->AddSprite(10102, 318, 135, 335, 152, yellowBrickTex);
-	spriteManager->AddSprite(10103, 336, 135, 353, 152, yellowBrickTex);
-	spriteManager->AddSprite(10104, 354, 135, 371, 152, yellowBrickTex);
-	spriteManager->AddSprite(10105, 372, 135, 389, 152, yellowBrickTex);
 }
 
 void BuildAnimation(DWORD time)
 {
-	SpriteManager* spriteManager = SpriteManager::GetInstance();
-	
-	// Build Mario run to right animation
-	LPANIMATION marioRunRight = new Animation(time);
-	marioRunRight->Add(spriteManager->GetSprite(10001));
-	marioRunRight->Add(spriteManager->GetSprite(10002));
-	marioRunRight->Add(spriteManager->GetSprite(10003));
-	mario->AddAnimation(marioRunRight);
 
-	// Build Mario run to left animation
-	LPANIMATION marioRunLeft = new Animation(time);
-	marioRunLeft->Add(spriteManager->GetSprite(10004));
-	marioRunLeft->Add(spriteManager->GetSprite(10005));
-	marioRunLeft->Add(spriteManager->GetSprite(10006));
-	mario->AddAnimation(marioRunLeft);
-
-	// Build Mario idle to right animation
-	LPANIMATION marioIdleRight = new Animation(time);
-	marioIdleRight->Add(spriteManager->GetSprite(10001));
-	mario->AddAnimation(marioIdleRight);
-
-	//Build Mario idle to left animation
-	LPANIMATION marioIdleLeft = new Animation(time);
-	marioIdleLeft->Add(spriteManager->GetSprite(10004));
-	mario->AddAnimation(marioIdleLeft);
-
-	// Build stone animation
-	LPANIMATION yellowBrickAni = new Animation(time);
-	yellowBrickAni->Add(spriteManager->GetSprite(10101));
-	yellowBrickAni->Add(spriteManager->GetSprite(10102));
-	yellowBrickAni->Add(spriteManager->GetSprite(10103));
-	yellowBrickAni->Add(spriteManager->GetSprite(10104));
-	yellowBrickAni->Add(spriteManager->GetSprite(10105));
-	brick->AddAnimation(yellowBrickAni);
 }
 
 void LoadResource()
@@ -212,7 +157,7 @@ void Render()
 		spriteHandler->Begin(D3DXSPRITE_ALPHABLEND);
 				
 		mario->RenderAnimation();
-		brick->RenderAnimation();
+		
 		spriteHandler->End();
 		d3ddv->EndScene();
 	}
@@ -233,8 +178,6 @@ int Run()
 	int done = 0;
 	ULONGLONG frame_start = GetTickCount64();;
 	DWORD tick_per_frame = 1000 / FRAME_RATE;	
-	// Build animation
-	BuildAnimation(100);
 	while (!done)
 	{
 		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))

@@ -2,9 +2,7 @@
 #include "Game.h"
 #include "Debug.h"
 #include <math.h>
-
-#define MARIO_WIDTH 16
-#define GRAVITY 20
+#include "AnimationManager.h"
 
 Mario::Mario(float x, float y, float speed, Vector2D direction): GameObject(x, y, direction)
 {	
@@ -21,86 +19,83 @@ Mario::Mario(const Vector2D& vec, float speed, Vector2D direction): GameObject(v
 void Mario::Update(float delta)
 {
 	delta /= 100;	
-	int backBufferWidth = Game::GetInstance()->GetBackBufferWidth();
+	int gameWidth = Game::GetInstance()->GetBackBufferWidth()/3 + 3;
 	float vx = velocity.GetX() + 1.0 / 2.0 * acceleration.GetX() * delta * delta;
 	float dx = vx * delta;
 	float x = dx + position.GetX();
 	if (x <= 0)
 	{
-		position.SetX(0);	
+		x = 0;
 	}
-	else if (x >= backBufferWidth - MARIO_WIDTH)
+	else if (x >= gameWidth - MARIO_WIDTH)
 	{
-		float tempX = (float)(backBufferWidth - MARIO_WIDTH);
-		position.SetX(tempX);		
+		float tempX = (float)(gameWidth - MARIO_WIDTH);
+		x = tempX;
 	}	
 	float ay = acceleration.GetY() * delta * delta / 2;
 	float vy = velocity.GetY() + acceleration.GetY() * delta * delta / 2;
+	velocity.SetVector(vx, vy);
+	if (vy >= 0 && this->state == MARIO_STATE_JUMP)
+	{
+		SetState(MARIO_STATE_FALL);
+	}
 	float dy = vy * delta;
 	float y = dy + position.GetY();
-	DebugOut(L"[INFO]vy = %f, dy = %f, ay = %f \n", vy, dy, ay);
-	if (y > 200)
+	DebugOut(L"[INFO]x = %f, y = %f, ay = %f \n", x, y, ay);
+	if (y > 150 && this->state == MARIO_STATE_FALL)
 	{
-		y = 200;
-		acceleration.SetY(0);
-		DebugOut(L"[INFO] ay = 0");
+		y = 150;
+		SetState(MARIO_STATE_IDLE);
+		DebugOut(L"[INFO] grounded 0 \n");
 	}
-	velocity.SetVector(vx, vy);
 	position.SetVector(x, y);
-	
-	
 }
 
-void Mario::SetSprite(LPSPRITE sprite)
+void Mario::PlayAnimation(int id)
 {
-}
-
-void Mario::RenderSprite()
-{
-}
-
-void Mario::AddAnimation(LPANIMATION animation)
-{
-	animations.push_back(animation);
-}
-
-void Mario::PlayAnimation(int index)
-{
-	if (index >= animations.size())
-	{
-		return;
-	}
-	animations[index]->Render(position);
+	AnimationManager* anis = AnimationManager::GetInstance();
+	anis->RenderAnimation(id, position);
 }
 
 void Mario::RenderAnimation()
 {
+	
 	switch (this->state)
 	{
 	case MARIO_STATE_WALKING_RIGHT:
-		PlayAnimation(0);
+		PlayAnimation(ANI_MARIO_BIG_RUN_RIGHT);
 		break;
 	case MARIO_STATE_WALKING_LEFT:
-		PlayAnimation(1);
+		PlayAnimation(ANI_MARIO_BIG_RUN_LEFT);
 		break;
 	case MARIO_STATE_JUMP:
 		if (direction.GetX() > 0)
 		{
-			PlayAnimation(2);
+			PlayAnimation(ANI_MARIO_BIG_JUMP_RIGHT);
 		}
 		else
 		{
-			PlayAnimation(3);
+			PlayAnimation(ANI_MARIO_BIG_JUMP_LEFT);
 		}		
+		break;
+	case MARIO_STATE_FALL:
+		if (direction.GetX() > 0)
+		{
+			PlayAnimation(ANI_MARIO_BIG_FALL_RIGHT);
+		}
+		else
+		{
+			PlayAnimation(ANI_MARIO_BIG_FALL_LEFT);
+		}
 		break;
 	case MARIO_STATE_IDLE:
 		if (direction.GetX() > 0)
 		{
-			PlayAnimation(2);
+			PlayAnimation(ANI_MARIO_BIG_IDLE_RIGHT);
 		}
 		else
 		{
-			PlayAnimation(3);
+			PlayAnimation(ANI_MARIO_BIG_IDLE_LEFT);
 		}
 		break;
 	}
@@ -109,6 +104,7 @@ void Mario::RenderAnimation()
 
 void Mario::SetState(int state)
 {
+	DebugOut(L"[INFO] old state = %d, new state = %d \n", this->state, state);
 	this->state = state;
 	switch (state)
 	{
@@ -124,10 +120,13 @@ void Mario::SetState(int state)
 		acceleration.SetY(GRAVITY);
 		velocity.SetY(MARIO_JUMP_SPEED);
 		break;
+	case MARIO_STATE_FALL:
+		velocity.SetY(0);
+		break;
 	default:
 		this->state = MARIO_STATE_IDLE;
-		velocity.SetX(0);
+		velocity.SetVector(0, 0);
+		acceleration.SetY(0);
 		break;
 	}
-	DebugOut(L"[INFO] position x = %f, speed = %f \n", direction.GetX(), velocity.GetY());
 }
