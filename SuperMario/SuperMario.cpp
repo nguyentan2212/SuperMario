@@ -25,7 +25,7 @@ int Run();
 
 // Game object
 Mario* mario = new Mario(0, 150, 0);
-GameObject* background = new GameObject(0, 0);
+
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	_In_opt_ HINSTANCE hPrevInstance,
 	_In_ LPWSTR    lpCmdLine,
@@ -129,9 +129,9 @@ void LoadSprites()
 	SpriteManager* spriteManager = SpriteManager::GetInstance();
 }
 
-void BuildAnimation(DWORD time)
+void BuildAnimation()
 {
-
+	AnimationManager* anmationManager = AnimationManager::GetInstance();
 }
 
 void LoadResource()
@@ -140,11 +140,14 @@ void LoadResource()
 	LoadTextures();
 	// Load sprites
 	LoadSprites();
+	// Build animations
+	BuildAnimation();
 }
 
 void Render()
 {
 	Game* game = Game::GetInstance();
+	Camera* camera = Camera::GetInstance();
 	LPDIRECT3DDEVICE9 d3ddv = game->GetDirect3DDevice();
 	LPDIRECT3DSURFACE9 back_buffer = game->GetBackBuffer();
 	LPD3DXSPRITE spriteHandler = game->GetSpriteHandler();	
@@ -156,8 +159,9 @@ void Render()
 
 		spriteHandler->Begin(D3DXSPRITE_ALPHABLEND);
 				
-		mario->RenderAnimation();
-		
+		camera->DrawBackGround();
+		mario->RenderAnimation();	
+
 		spriteHandler->End();
 		d3ddv->EndScene();
 	}
@@ -178,6 +182,7 @@ int Run()
 	int done = 0;
 	ULONGLONG frame_start = GetTickCount64();;
 	DWORD tick_per_frame = 1000 / FRAME_RATE;	
+
 	while (!done)
 	{
 		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))

@@ -1,6 +1,7 @@
 #pragma once
 #include "Vector2D.h"
 #include "Animation.h"
+#include "AnimationManager.h"
 
 class GameObject
 {
@@ -12,7 +13,7 @@ public:
 	
 
 	virtual void Update(float delta){}
-	virtual void PlayAnimation(int index){}
+	virtual void PlayAnimation(int index);
 	virtual void RenderAnimation(){}
 
 	Vector2D position;

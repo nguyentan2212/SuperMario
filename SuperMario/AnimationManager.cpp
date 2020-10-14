@@ -68,4 +68,9 @@ AnimationManager::AnimationManager()
 	ani = new Animation(ANI_DEFAULT_TIME);
 	ani->Add(spriteManager->GetSprite(10006));
 	animations[ANI_MARIO_BIG_FALL_LEFT] = ani;
+
+	//Build background animation
+	ani = new Animation(ANI_DEFAULT_TIME);
+	ani->Add(spriteManager->GetSprite(10201));
+	animations[ANI_BACKGROUND] = ani;
 }

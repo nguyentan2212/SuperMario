@@ -2,7 +2,6 @@
 #include "Game.h"
 #include "Debug.h"
 #include <math.h>
-#include "AnimationManager.h"
 
 Mario::Mario(float x, float y, float speed, Vector2D direction): GameObject(x, y, direction)
 {	
@@ -27,9 +26,9 @@ void Mario::Update(float delta)
 	{
 		x = 0;
 	}
-	else if (x >= gameWidth - MARIO_WIDTH)
+	else if (x >= 2816 - MARIO_WIDTH)
 	{
-		float tempX = (float)(gameWidth - MARIO_WIDTH);
+		float tempX = (float)(2816 - MARIO_WIDTH);
 		x = tempX;
 	}	
 	float ay = acceleration.GetY() * delta * delta / 2;
@@ -41,7 +40,7 @@ void Mario::Update(float delta)
 	}
 	float dy = vy * delta;
 	float y = dy + position.GetY();
-	DebugOut(L"[INFO]x = %f, y = %f, ay = %f \n", x, y, ay);
+	//DebugOut(L"[INFO] Mario position x = %f, y = %f \n", x, y);
 	if (y > 150 && this->state == MARIO_STATE_FALL)
 	{
 		y = 150;
@@ -49,12 +48,19 @@ void Mario::Update(float delta)
 		DebugOut(L"[INFO] grounded 0 \n");
 	}
 	position.SetVector(x, y);
-}
 
-void Mario::PlayAnimation(int id)
-{
-	AnimationManager* anis = AnimationManager::GetInstance();
-	anis->RenderAnimation(id, position);
+	LPCAMERA camera = Camera::GetInstance();
+	float cx = x - gameWidth/2.0f;
+	if (cx < 0)
+	{
+		cx = 0;
+	}
+	else if (cx > 2816 - gameWidth)
+	{
+		cx = 2816 - gameWidth;
+	}
+	camera->position.SetX(cx);
+	DebugOut(L"[INFO] Camera x = %f, Mario = %f \n", cx, x);
 }
 
 void Mario::RenderAnimation()

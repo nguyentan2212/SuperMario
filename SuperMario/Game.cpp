@@ -2,6 +2,11 @@
 #include "Debug.h"
 
 Game* Game::instance = NULL;
+
+Game::Game()
+{
+}
+
 Game* Game::GetInstance()
 {
 	if (instance == NULL)
@@ -71,13 +76,23 @@ void Game::Init(HWND hWnd, HINSTANCE hInstance)
 
 void Game::Draw(float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom)
 {
-	D3DXVECTOR3 p(x, y, 0);
+	Camera* camera = Camera::GetInstance();
+	Vector2D camPosition = camera->position;
+	D3DXVECTOR3 p(x - camPosition.GetX(), y - camPosition.GetY(), 0);
 	RECT r;
 	r.left = left;
 	r.top = top;
 	r.right = right;
 	r.bottom = bottom;
 	spriteHandler->Draw(texture, &r, NULL, &p, D3DCOLOR_XRGB(255, 255, 255));
+}
+
+void Game::Draw(float x, float y, LPDIRECT3DTEXTURE9 texture, RECT resource)
+{
+	Camera* camera = Camera::GetInstance();
+	Vector2D camPosition = camera->position;
+	D3DXVECTOR3 p(x - camPosition.GetX(), y - camPosition.GetY(), 0);
+	spriteHandler->Draw(texture, &resource, NULL, &p, D3DCOLOR_XRGB(255, 255, 255));
 }
 
 LPDIRECT3DTEXTURE9 Game::LoadTexture(LPCWSTR texturePath, D3DCOLOR transparentColor)

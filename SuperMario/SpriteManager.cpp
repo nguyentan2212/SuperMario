@@ -55,6 +55,6 @@ SpriteManager::SpriteManager()
 	// Big Mario switch left
 	AddSprite(10010, 424, 154, 442, 181, texture);
 	// background
-	texture = textureManager->GetTexture(102);
-	AddSprite(10201, 0, 240, 255, 432, texture);
+	/*texture = textureManager->GetTexture(102);
+	AddSprite(10201, 0, 240, 255, 432, texture);*/
 }

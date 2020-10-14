@@ -2,6 +2,7 @@
 #include <vector>
 #include "GameObject.h"
 #include "GameDefine.h"
+#include "Camera.h"
 
 using namespace std;
 
@@ -12,7 +13,6 @@ public:
 	Mario(const Vector2D& vec, float speed = 0, Vector2D direction = Vector2D::Right());
 
 	void Update(float delta);		
-	void PlayAnimation(int index);
 	void RenderAnimation();
 	void SetState(int state);
 

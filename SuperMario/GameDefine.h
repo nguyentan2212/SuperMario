@@ -11,6 +11,7 @@
 #define ANI_MARIO_BIG_JUMP_LEFT         5
 #define ANI_MARIO_BIG_FALL_RIGHT        6
 #define ANI_MARIO_BIG_FALL_LEFT         7 
+#define ANI_BACKGROUND                  20
 
 // MARIO STATE CONST
 #define MARIO_STATE_IDLE			    0

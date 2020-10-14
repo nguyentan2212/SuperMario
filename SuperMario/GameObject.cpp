@@ -13,3 +13,9 @@ GameObject::GameObject(Vector2D vec, Vector2D direction)
 	state = 0;
 	this->direction.SetVector(direction);
 }
+
+void GameObject::PlayAnimation(int index)
+{
+	AnimationManager* anis = AnimationManager::GetInstance();
+	anis->RenderAnimation(index, position);
+}

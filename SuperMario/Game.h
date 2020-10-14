@@ -4,6 +4,8 @@
 #include <d3dx9.h>
 #include "Debug.h"
 #include "KeyHandler.h"
+#include "Vector2D.h"
+#include "Camera.h"
 
 #define DIRECTINPUT_VERSION 0x0800
 #define KEYBOARD_BUFFER_SIZE 1024
@@ -11,7 +13,7 @@
 class Game
 {
 public:
-	Game(){}
+	Game();
 	Game(Game& game) = delete;
 	void operator=(const Game& game) = delete;
 	static Game* GetInstance();
@@ -19,6 +21,7 @@ public:
 
 	void Init(HWND hWnd, HINSTANCE hInstance);
 	void Draw(float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom);
+	void Draw(float x, float y, LPDIRECT3DTEXTURE9 texture, RECT resource);
 	LPDIRECT3DTEXTURE9 LoadTexture(LPCWSTR texturePath, D3DCOLOR transparentColor);
 
 	LPDIRECT3DDEVICE9 GetDirect3DDevice() { return this->d3ddv; }
