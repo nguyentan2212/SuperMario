@@ -1,6 +1,6 @@
 #pragma once
 #include "GameObject.h"
-#include "Game.h"
+#include "SpriteHandler.h"
 #include "TextureManager.h"
 
 class Camera : public GameObject

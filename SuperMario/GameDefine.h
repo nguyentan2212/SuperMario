@@ -29,7 +29,8 @@
 #define MARIO_FIGURE_BIG                1
 #define MARIO_FIGURE_RACCOON            2
 
-#define MARIO_WIDTH 17
+#define MARIO_WIDTH                     17
 
-// WORLD PHYSIC CONST
-#define GRAVITY 40
+// WORLD CONST
+#define GRAVITY                         40
+#define SCALE_CONST                     3.0f

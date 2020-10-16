@@ -5,7 +5,8 @@ Camera* Camera::instance = NULL;
 
 void Camera::DrawBackGround()
 {
-    Game* game = Game::GetInstance();
+    
+    LPSPRITEHANDLER spriteHandler = SpriteHandler::GetInstance();
     TextureManager* textureManager = TextureManager::GetInstance();
     LPDIRECT3DTEXTURE9 background = textureManager->GetTexture(102);
     RECT r;
@@ -13,7 +14,7 @@ void Camera::DrawBackGround()
     r.top = 240 + position.GetY();
     r.right = 255 + position.GetX();
     r.bottom = 432 + position.GetY();
-    game->Draw(position.GetX(), position.GetY(), background, r);
+    spriteHandler->Draw(position.GetX(), position.GetY(), background, r);
 }
 
 Camera* Camera::GetInstance()

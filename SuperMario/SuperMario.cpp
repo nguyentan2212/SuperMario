@@ -150,19 +150,16 @@ void Render()
 	Camera* camera = Camera::GetInstance();
 	LPDIRECT3DDEVICE9 d3ddv = game->GetDirect3DDevice();
 	LPDIRECT3DSURFACE9 back_buffer = game->GetBackBuffer();
-	LPD3DXSPRITE spriteHandler = game->GetSpriteHandler();	
 
+	AnimationManager* animationManager = AnimationManager::GetInstance();
 	if (SUCCEEDED(d3ddv->BeginScene()))
 	{
 		// Clear back buffer with a color
 		d3ddv->ColorFill(back_buffer, NULL, BACKGROUND_COLOR);
-
-		spriteHandler->Begin(D3DXSPRITE_ALPHABLEND);
-				
+		
 		camera->DrawBackGround();
-		mario->RenderAnimation();	
-
-		spriteHandler->End();
+		mario->RenderAnimation();		
+	
 		d3ddv->EndScene();
 	}
 	// Display back buffer content to the screen

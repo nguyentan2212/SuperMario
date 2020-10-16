@@ -18,7 +18,6 @@ Game* Game::GetInstance()
 
 Game::~Game()
 {
-	if (spriteHandler != NULL) spriteHandler->Release();
 	if (backBuffer != NULL) backBuffer->Release();
 	if (d3ddv != NULL) d3ddv->Release();
 	if (d3d != NULL) d3d->Release();
@@ -67,32 +66,13 @@ void Game::Init(HWND hWnd, HINSTANCE hInstance)
 	d3ddv->GetBackBuffer(0, 0, D3DBACKBUFFER_TYPE_MONO, &backBuffer);
 	
 	// Initialize sprite helper from Direct3DX helper library
-	D3DXCreateSprite(d3ddv, &spriteHandler);
-
+	D3DXCreateSprite(d3ddv, &SpriteHandler::GetInstance()->spriteHandler);
+	
 	D3DXMATRIX matScale;
-	D3DXMatrixScaling(&matScale, 3.0f, 3.0f, .0f);
-	spriteHandler->SetTransform(&matScale);
-}
+	D3DXMatrixScaling(&matScale, SCALE_CONST, SCALE_CONST, .0f);
 
-void Game::Draw(float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom)
-{
-	Camera* camera = Camera::GetInstance();
-	Vector2D camPosition = camera->position;
-	D3DXVECTOR3 p(x - camPosition.GetX(), y - camPosition.GetY(), 0);
-	RECT r;
-	r.left = left;
-	r.top = top;
-	r.right = right;
-	r.bottom = bottom;
-	spriteHandler->Draw(texture, &r, NULL, &p, D3DCOLOR_XRGB(255, 255, 255));
-}
+	SpriteHandler::GetInstance()->SetTranform(matScale);
 
-void Game::Draw(float x, float y, LPDIRECT3DTEXTURE9 texture, RECT resource)
-{
-	Camera* camera = Camera::GetInstance();
-	Vector2D camPosition = camera->position;
-	D3DXVECTOR3 p(x - camPosition.GetX(), y - camPosition.GetY(), 0);
-	spriteHandler->Draw(texture, &resource, NULL, &p, D3DCOLOR_XRGB(255, 255, 255));
 }
 
 LPDIRECT3DTEXTURE9 Game::LoadTexture(LPCWSTR texturePath, D3DCOLOR transparentColor)

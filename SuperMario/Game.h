@@ -20,13 +20,10 @@ public:
 	~Game();
 
 	void Init(HWND hWnd, HINSTANCE hInstance);
-	void Draw(float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom);
-	void Draw(float x, float y, LPDIRECT3DTEXTURE9 texture, RECT resource);
 	LPDIRECT3DTEXTURE9 LoadTexture(LPCWSTR texturePath, D3DCOLOR transparentColor);
 
 	LPDIRECT3DDEVICE9 GetDirect3DDevice() { return this->d3ddv; }
 	LPDIRECT3DSURFACE9 GetBackBuffer() { return backBuffer; }
-	LPD3DXSPRITE GetSpriteHandler() { return this->spriteHandler; }
 
 	int GetBackBufferWidth() { return backBufferWidth; }
 	int GetBackBufferHeight() { return backBufferHeight; }
@@ -45,7 +42,6 @@ private:
 	LPDIRECT3DDEVICE9 d3ddv = NULL;				// Direct3D device object
 
 	LPDIRECT3DSURFACE9 backBuffer = NULL;
-	LPD3DXSPRITE spriteHandler = NULL;			// Sprite helper library to help us draw 2D image on the screen
 
 	int backBufferWidth = 0;
 	int backBufferHeight = 0;

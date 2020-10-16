@@ -6,13 +6,15 @@
 class Sprite
 {
 public:
-	Sprite(int id, int left, int top, int right, int bottom, LPDIRECT3DTEXTURE9 texture);
+	Sprite(int id, int left, int top, int right, int bottom, LPDIRECT3DTEXTURE9 texture, int flipX = 1);
 	void Draw(float x, float y);
 	void Draw(Vector2D vec) { Draw(vec.GetX(), vec.GetY()); }
+	LPDIRECT3DTEXTURE9 GetTexture() { return texture; }
 	~Sprite() { delete texture; }
 private:
 	int id;				// Sprite ID in the sprite database
 
+	int flipX;
 	int left;
 	int top;
 	int right;

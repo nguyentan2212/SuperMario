@@ -1,7 +1,12 @@
-﻿  Mario.cpp
+﻿  SuperMario.cpp
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
 C:\Users\ASUS\source\repos\SuperMario\SuperMario\Game.h(10,1): warning C4005: 'DIRECTINPUT_VERSION': macro redefinition
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\dinput.h(48): message : see previous definition of 'DIRECTINPUT_VERSION'
-C:\Users\ASUS\source\repos\SuperMario\SuperMario\Mario.cpp(22,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\ASUS\source\repos\SuperMario\SuperMario\Mario.cpp(60,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\ASUS\source\repos\SuperMario\SuperMario\SuperMario.cpp(123,65): warning C4002: too many arguments for function-like macro invocation 'D3DCOLOR_XRGB'
+C:\Users\ASUS\source\repos\SuperMario\SuperMario\SuperMario.cpp(171,16): warning C4244: 'argument': conversion from 'DWORD' to 'float', possible loss of data
+C:\Users\ASUS\source\repos\SuperMario\SuperMario\SuperMario.cpp(193,13): warning C4244: 'initializing': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
+C:\Users\ASUS\source\repos\SuperMario\SuperMario\SuperMario.cpp(194,15): warning C4244: 'initializing': conversion from 'ULONGLONG' to 'float', possible loss of data
+C:\Users\ASUS\source\repos\SuperMario\SuperMario\SuperMario.cpp(201,11): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
+C:\Users\ASUS\source\repos\SuperMario\SuperMario\SuperMario.cpp(209,25): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
+C:\Users\ASUS\source\repos\SuperMario\SuperMario\SuperMario.cpp(63): warning C4715: 'wWinMain': not all control paths return a value
   SuperMario.vcxproj -> C:\Users\ASUS\source\repos\SuperMario\x64\Debug\SuperMario.exe

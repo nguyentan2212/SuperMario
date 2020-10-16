@@ -24,3 +24,4 @@
 #include "KeyHandler.h"
 #include "MarioKeyHandler.h"
 #include "AnimationManager.h"
+#include "SpriteHandler.h"

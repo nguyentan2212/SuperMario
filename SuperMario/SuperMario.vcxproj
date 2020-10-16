@@ -159,6 +159,7 @@
     <ClInclude Include="MarioKeyHandler.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="SpriteHandler.h" />
     <ClInclude Include="SpriteManager.h" />
     <ClInclude Include="SuperMario.h" />
     <ClInclude Include="targetver.h" />
@@ -175,6 +176,7 @@
     <ClCompile Include="Mario.cpp" />
     <ClCompile Include="MarioKeyHandler.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="SpriteHandler.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
     <ClCompile Include="SuperMario.cpp" />
     <ClCompile Include="TextureManager.cpp" />
