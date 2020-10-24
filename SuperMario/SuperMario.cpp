@@ -122,6 +122,7 @@ void LoadTextures()
 	textureManager->AddTexture(100, game->LoadTexture(L"mario.png", D3DCOLOR_XRGB(0, 136, 255)));
 	textureManager->AddTexture(101, game->LoadTexture(L"misc.png", D3DCOLOR_XRGB(176, 224, 248, 255)));
 	textureManager->AddTexture(102, game->LoadTexture(L"background.png", BLACK_BRUSH));
+	textureManager->AddTexture(103, game->LoadTexture(L"goomba.png", D3DCOLOR_XRGB(68, 145, 190, 255)));
 }
 
 void LoadSprites()

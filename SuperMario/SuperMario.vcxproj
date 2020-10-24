@@ -187,6 +187,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="background.png" />
+    <Image Include="goomba.png" />
     <Image Include="mario.png" />
     <Image Include="misc.png" />
     <Image Include="small.ico" />

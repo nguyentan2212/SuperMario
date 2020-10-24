@@ -26,9 +26,9 @@ void SpriteManager::AddSprite(int id, LPSPRITE sprite)
 
 }
 
-void SpriteManager::AddSprite(int id, int left, int top, int right, int bottom, LPDIRECT3DTEXTURE9 texture, int flipX)
+void SpriteManager::AddSprite(int id, int left, int top, int right, int bottom, LPDIRECT3DTEXTURE9 texture)
 {
-	LPSPRITE sprite = new Sprite(id, left, top, right, bottom, texture, flipX);
+	LPSPRITE sprite = new Sprite(id, left, top, right, bottom, texture);
 	sprites[id] = sprite;
 }
 
@@ -39,22 +39,21 @@ SpriteManager::SpriteManager()
 	LPDIRECT3DTEXTURE9 texture = textureManager->GetTexture(100);
 	
 	// Big Mario run to right
-	AddSprite(10001, 246, 154, 260, 181, texture, 1);
-	AddSprite(10002, 275, 154, 290, 181, texture, 1);
-	AddSprite(10003, 304, 154, 321, 181, texture, 1);
+	AddSprite(10001, 245, 153, 260, 181, texture);
+	AddSprite(10002, 274, 153, 290, 181, texture);
+	AddSprite(10003, 304, 153, 321, 181, texture);
 	// Big Mario run to left
-	AddSprite(10001, 246, 154, 260, 181, texture, -1);
-	AddSprite(10002, 275, 154, 290, 181, texture, -1);
-	AddSprite(10003, 304, 154, 321, 181, texture, -1);
+	AddSprite(10004, 185, 153, 200, 181, texture);
+	AddSprite(10005, 155, 153, 171, 181, texture);
+	AddSprite(10006, 124, 153, 141, 181, texture);
 	// Big Mario jump right
-	AddSprite(10007, 394, 275, 412, 303, texture, 1);
+	AddSprite(10007, 394, 274, 411, 301, texture);
 	// Big Mario jump left
-	AddSprite(10007, 394, 275, 412, 303, texture, -1);
-	// Big Mario switch right
-	AddSprite(10009, 4, 154, 22, 181, texture, 1);
-	// Big Mario switch left
-	AddSprite(10009, 4, 154, 22, 181, texture, -1);
-	// background
-	/*texture = textureManager->GetTexture(102);
-	AddSprite(10201, 0, 240, 255, 432, texture);*/
+	AddSprite(10008, 34, 274, 51, 301, texture);
+	// Big Mario switch to right
+	AddSprite(10009, 424, 153, 441, 182, texture);
+	// Big Mario switch to left
+	AddSprite(100010, 4, 153, 22, 182, texture);
+	// Goomba 
+	AddSprite(10301, 0, 0, 15, 15, texture);
 }

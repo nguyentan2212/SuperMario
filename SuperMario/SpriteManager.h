@@ -13,7 +13,7 @@ public:
 	static SpriteManager* GetInstance();
 	LPSPRITE GetSprite(int id);
 	void AddSprite(int id, LPSPRITE sprite);
-	void AddSprite(int id, int left, int top, int right, int bottom, LPDIRECT3DTEXTURE9 texture, int flipX = 1);
+	void AddSprite(int id, int left, int top, int right, int bottom, LPDIRECT3DTEXTURE9 texture);
 
 private:
 	static SpriteManager* instance;
