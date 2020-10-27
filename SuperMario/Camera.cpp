@@ -10,10 +10,10 @@ void Camera::DrawBackGround()
     TextureManager* textureManager = TextureManager::GetInstance();
     LPDIRECT3DTEXTURE9 background = textureManager->GetTexture(102);
     RECT r;
-    r.left = 0 + position.GetX();
-    r.top = 240 + position.GetY();
-    r.right = 255 + position.GetX();
-    r.bottom = 432 + position.GetY();
+    r.left = 0 + (long)position.GetX();
+    r.top = 240 + (long)position.GetY();
+    r.right = 255 + (long)position.GetX();
+    r.bottom = 432 + (long)position.GetY();
     spriteHandler->Draw(position.GetX(), position.GetY(), background, r);
 }
 

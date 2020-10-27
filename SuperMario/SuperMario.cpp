@@ -8,7 +8,7 @@
 #define MAX_LOADSTRING 100
 #define GAME_WIDTH 780
 #define GAME_HEIGHT 614
-#define FRAME_RATE 100
+#define FRAME_RATE 60
 #define BACKGROUND_COLOR D3DCOLOR_XRGB(255, 255, 255)
 #define LPTEXTURE LPDIRECT3DTEXTURE9
 // Global Variables:
@@ -24,8 +24,8 @@ void LoadResource();
 int Run();
 
 // Game object
-Mario* mario = new Mario(0, 150, 0);
-
+GameObject* mario = new Mario(0, 150);
+//GameObject* goomba = new Goomba(224, 161, 0);
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	_In_opt_ HINSTANCE hPrevInstance,
 	_In_ LPWSTR    lpCmdLine,
@@ -60,6 +60,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	LoadResource();
 	// Runs game
 	Run();
+	return TRUE;
 }
 
 ATOM MyRegisterClass(HINSTANCE hInstance)
@@ -120,9 +121,9 @@ void LoadTextures()
 	TextureManager* textureManager = TextureManager::GetInstance();
 
 	textureManager->AddTexture(100, game->LoadTexture(L"mario.png", D3DCOLOR_XRGB(0, 136, 255)));
-	textureManager->AddTexture(101, game->LoadTexture(L"misc.png", D3DCOLOR_XRGB(176, 224, 248, 255)));
+	textureManager->AddTexture(101, game->LoadTexture(L"misc.png", D3DCOLOR_XRGB(176, 224, 248)));
 	textureManager->AddTexture(102, game->LoadTexture(L"background.png", BLACK_BRUSH));
-	textureManager->AddTexture(103, game->LoadTexture(L"goomba.png", D3DCOLOR_XRGB(68, 145, 190, 255)));
+	textureManager->AddTexture(103, game->LoadTexture(L"goomba.png", D3DCOLOR_XRGB(68, 145, 190)));
 }
 
 void LoadSprites()
@@ -159,17 +160,23 @@ void Render()
 		d3ddv->ColorFill(back_buffer, NULL, BACKGROUND_COLOR);
 		
 		camera->DrawBackGround();
+		//goomba->RenderAnimation();
 		mario->RenderAnimation();		
-	
 		d3ddv->EndScene();
 	}
 	// Display back buffer content to the screen
 	d3ddv->Present(NULL, NULL, NULL, NULL);
 }
 
-void Update(DWORD delta)
+void Update(float delta)
 {
 	mario->Update(delta);
+	/*if (mario->position.GetX() > 80 && goomba->runSpeed == 0)
+	{
+		goomba->runSpeed = MARIO_RUN_SPEED * 2 / 3;
+		goomba->SetState(STATE_RUN);
+	}*/
+	//goomba->Update(delta);
 }
 
 int Run()
@@ -191,8 +198,8 @@ int Run()
 			DispatchMessage(&msg);
 		}
 
-		DWORD now = GetTickCount64();
-		float delta = now - frame_start;
+		ULONGLONG now = GetTickCount64();
+		float delta = (float)now - (float)frame_start;
 		if (delta >= tick_per_frame)
 		{
 			frame_start = now;
@@ -207,7 +214,7 @@ int Run()
 		}
 		else
 		{
-			Sleep(tick_per_frame - delta);
+			Sleep(tick_per_frame - (DWORD)delta);
 		}
 	}
 	return 0;

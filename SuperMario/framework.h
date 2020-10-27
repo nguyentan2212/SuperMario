@@ -21,6 +21,7 @@
 #include "Animation.h"
 #include "TextureManager.h"
 #include "Mario.h"
+#include "Goomba.h"
 #include "KeyHandler.h"
 #include "MarioKeyHandler.h"
 #include "AnimationManager.h"

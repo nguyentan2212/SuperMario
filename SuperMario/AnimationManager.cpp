@@ -69,8 +69,24 @@ AnimationManager::AnimationManager()
 	ani->Add(spriteManager->GetSprite(10006));
 	animations[ANI_MARIO_BIG_FALL_LEFT] = ani;
 
+	// Big Mario switch to right
+	ani = new Animation(300);
+	ani->Add(spriteManager->GetSprite(10009));
+	animations[ANI_MARIO_BIG_SWITCH_RIGHT] = ani;
+
+	// Big Mario switch to right
+	ani = new Animation(300);
+	ani->Add(spriteManager->GetSprite(10010));
+	animations[ANI_MARIO_BIG_SWITCH_LEFT] = ani;
+
 	//Build background animation
 	ani = new Animation(ANI_DEFAULT_TIME);
 	ani->Add(spriteManager->GetSprite(10201));
 	animations[ANI_BACKGROUND] = ani;
+
+	//Build Goomba animation
+	ani = new Animation(ANI_DEFAULT_TIME);
+	ani->Add(spriteManager->GetSprite(10301));
+	ani->Add(spriteManager->GetSprite(10302));
+	animations[ANI_GOOMBA_RUN] = ani;
 }

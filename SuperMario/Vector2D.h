@@ -13,6 +13,7 @@ public:
 	Vector2D operator+(const Vector2D& vec);
 	Vector2D operator-(const Vector2D& vec);
 	Vector2D operator*(const float f);	
+	Vector2D operator/(const float f);
 
 	static Vector2D Up() { return Vector2D(0, -1); }
 	static Vector2D Down() { return Vector2D(0, 1); }

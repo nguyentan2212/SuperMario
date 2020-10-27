@@ -6,11 +6,11 @@
 class MarioKeyHandler : public KeyHandler
 {
 public:
-	MarioKeyHandler(Mario* mario) { this->mario = mario;}
+	MarioKeyHandler(GameObject* mario) { this->mario = mario;}
 	void OnKeyDown(int KeyCode);	
 	void OnKeyUp(int KeyCode);
 	void Update(DIDEVICEOBJECTDATA* keyEvents, DWORD dwElements);
 private:
-	Mario* mario;
+	GameObject* mario;
 };
 

@@ -1,2 +1,34 @@
-﻿  SpriteManager.cpp
+﻿  AnimationManager.cpp
+  Camera.cpp
+  ChangedFigureState.cpp
+C:\Users\ASUS\source\repos\SuperMario\SuperMario\GameObject.h(14,1): warning C4150: deletion of pointer to incomplete type 'BaseState'; no destructor called
+C:\Users\ASUS\source\repos\SuperMario\SuperMario\GameObject.h(7): message : see declaration of 'BaseState'
+  DeathState.cpp
+C:\Users\ASUS\source\repos\SuperMario\SuperMario\GameObject.h(14,1): warning C4150: deletion of pointer to incomplete type 'BaseState'; no destructor called
+C:\Users\ASUS\source\repos\SuperMario\SuperMario\GameObject.h(7): message : see declaration of 'BaseState'
+  FallState.cpp
+C:\Users\ASUS\source\repos\SuperMario\SuperMario\GameObject.h(14,1): warning C4150: deletion of pointer to incomplete type 'BaseState'; no destructor called
+C:\Users\ASUS\source\repos\SuperMario\SuperMario\GameObject.h(7): message : see declaration of 'BaseState'
+  Game.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  GameObject.cpp
+  Goomba.cpp
+  IdleState.cpp
+C:\Users\ASUS\source\repos\SuperMario\SuperMario\GameObject.h(14,1): warning C4150: deletion of pointer to incomplete type 'BaseState'; no destructor called
+C:\Users\ASUS\source\repos\SuperMario\SuperMario\GameObject.h(7): message : see declaration of 'BaseState'
+  JumpState.cpp
+C:\Users\ASUS\source\repos\SuperMario\SuperMario\GameObject.h(14,1): warning C4150: deletion of pointer to incomplete type 'BaseState'; no destructor called
+C:\Users\ASUS\source\repos\SuperMario\SuperMario\GameObject.h(7): message : see declaration of 'BaseState'
+  Mario.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  MarioKeyHandler.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  RunState.cpp
+C:\Users\ASUS\source\repos\SuperMario\SuperMario\GameObject.h(14,1): warning C4150: deletion of pointer to incomplete type 'BaseState'; no destructor called
+C:\Users\ASUS\source\repos\SuperMario\SuperMario\GameObject.h(7): message : see declaration of 'BaseState'
+  Sprite.cpp
+  SpriteHandler.cpp
+  SuperMario.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Generating Code...
   SuperMario.vcxproj -> C:\Users\ASUS\source\repos\SuperMario\x64\Debug\SuperMario.exe

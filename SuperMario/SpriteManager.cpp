@@ -55,5 +55,10 @@ SpriteManager::SpriteManager()
 	// Big Mario switch to left
 	AddSprite(100010, 4, 153, 22, 182, texture);
 	// Goomba 
-	AddSprite(10301, 0, 0, 15, 15, texture);
+	texture = textureManager->GetTexture(103);
+	AddSprite(10301, 0, 0, 16, 16, texture);
+	AddSprite(10302, 16, 0, 32, 16, texture);
+	AddSprite(10303, 33, 0, 48, 16, texture);
+	AddSprite(10304, 49, 0, 56, 16, texture);
+
 }

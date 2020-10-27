@@ -3,21 +3,19 @@
 #include "GameObject.h"
 #include "GameDefine.h"
 #include "Camera.h"
+#include "State.h"
 
 using namespace std;
 
 class Mario : public GameObject
 {
 public:
-	Mario(float x, float y, float speed = 0, Vector2D direction = Vector2D::Right());
-	Mario(const Vector2D& vec, float speed = 0, Vector2D direction = Vector2D::Right());
+	Mario(float x, float y);
+	Mario(const Vector2D& vec);
 
 	void Update(float delta);		
 	void RenderAnimation();
-	void SetState(int state);
+	void SetState(int state);	
 
-private:
-
-	Vector2D velocity;
-	Vector2D acceleration;	
+	bool IsGrounded = true;	
 };

@@ -18,7 +18,15 @@ Vector2D Vector2D::operator-(const Vector2D& vec)
 Vector2D Vector2D::operator*(const float f)
 {
     Vector2D temp;
-    temp.x *= f;
-    temp.y *= f;
+    temp.x = this->x * f;
+    temp.y = this->y * f;
+    return temp;
+}
+
+Vector2D Vector2D::operator/(const float f)
+{
+    Vector2D temp;
+    temp.x = this->x / f;
+    temp.y = this->y / f;
     return temp;
 }
