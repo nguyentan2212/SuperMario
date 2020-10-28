@@ -135,8 +135,11 @@
     <ClInclude Include="FallState.h">
       <Filter>Header Files\Game Object Header Files\State Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GameObjectManager.h">
+      <Filter>Header Files\Game Object Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Goomba.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Game Object Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -200,8 +203,11 @@
     <ClCompile Include="ChangedFigureState.cpp">
       <Filter>Source Files\Game Object Source Files\State Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GameObjectManager.cpp">
+      <Filter>Source Files\Game Object Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Goomba.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Game Object Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

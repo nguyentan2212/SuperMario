@@ -43,3 +43,7 @@
 #define GRAVITY                         17.5f
 #define SCALE_CONST                     3.0f
 #define BACKGROUND_TEXTURE_WIDTH        2816
+
+// GAMEOBJECT ID
+#define ID_MARIO                           1
+#define ID_GOOMBA_1                        2

@@ -48,19 +48,6 @@ void Mario::Update(float delta)
 			TransitionTo(new IdleState());
 		}
 	}
-	// Camera follows Mario
-	LPCAMERA camera = Camera::GetInstance();
-	int gameWidth = Game::GetInstance()->GetBackBufferWidth() / 3 + 3;// Get game screen
-	float cx = position.GetX() - gameWidth/2.0f;
-	if (cx < 0)
-	{
-		cx = 0;
-	}
-	else if (cx > 2816.0f - gameWidth)
-	{
-		cx = 2816.0f - gameWidth;
-	}
-	camera->position.SetX(cx);
 }
 
 void Mario::RenderAnimation()

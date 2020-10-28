@@ -31,3 +31,5 @@ protected:
 	
 };
 
+typedef GameObject* LPGAMEOBJECT;
+

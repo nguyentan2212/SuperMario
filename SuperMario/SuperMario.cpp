@@ -3,7 +3,7 @@
 
 #include "framework.h"
 #include "SuperMario.h"
-#include "SpriteManager.h"
+
 
 #define MAX_LOADSTRING 100
 #define GAME_WIDTH 780
@@ -24,8 +24,7 @@ void LoadResource();
 int Run();
 
 // Game object
-GameObject* mario = new Mario(0, 150);
-//GameObject* goomba = new Goomba(224, 161, 0);
+
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	_In_opt_ HINSTANCE hPrevInstance,
 	_In_ LPWSTR    lpCmdLine,
@@ -52,6 +51,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	game->Init(hWnd, hInstance);
 
 	// Create Key handler
+	GameObject* mario = GameObjectManager::GetInstance()->GetGameObject(ID_MARIO);
 	LPKEYHANDLER keyHander = new MarioKeyHandler(mario);
 	game->InitKeyboard(keyHander);
 
@@ -149,7 +149,8 @@ void LoadResource()
 void Render()
 {
 	Game* game = Game::GetInstance();
-	Camera* camera = Camera::GetInstance();
+	
+	GameObjectManager* gom = GameObjectManager::GetInstance();
 	LPDIRECT3DDEVICE9 d3ddv = game->GetDirect3DDevice();
 	LPDIRECT3DSURFACE9 back_buffer = game->GetBackBuffer();
 
@@ -158,10 +159,7 @@ void Render()
 	{
 		// Clear back buffer with a color
 		d3ddv->ColorFill(back_buffer, NULL, BACKGROUND_COLOR);
-		
-		camera->DrawBackGround();
-		//goomba->RenderAnimation();
-		mario->RenderAnimation();		
+		gom->Render();
 		d3ddv->EndScene();
 	}
 	// Display back buffer content to the screen
@@ -170,7 +168,7 @@ void Render()
 
 void Update(float delta)
 {
-	mario->Update(delta);
+	//mario->Update(delta);
 	/*if (mario->position.GetX() > 80 && goomba->runSpeed == 0)
 	{
 		goomba->runSpeed = MARIO_RUN_SPEED * 2 / 3;
@@ -197,6 +195,7 @@ int Run()
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
 		}
+		GameObjectManager* gom = GameObjectManager::GetInstance();
 
 		ULONGLONG now = GetTickCount64();
 		float delta = (float)now - (float)frame_start;
@@ -206,8 +205,7 @@ int Run()
 			
 			game->ProcessKeyboard();
 
-			Update(delta);
-			Vector2D vec = mario->position;
+			gom->Update(delta);
 			//DebugOut(L"[INFO] position x: %f %f \n", vec.GetX(), vec.GetY());
 			//DebugOut(L"[INFO] position x: %d \n", Game::GetInstance()->GetBackBufferWidth());
 			Render();

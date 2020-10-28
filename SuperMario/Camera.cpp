@@ -17,6 +17,21 @@ void Camera::DrawBackGround()
     spriteHandler->Draw(position.GetX(), position.GetY(), background, r);
 }
 
+void Camera::Follow(Vector2D pos)
+{
+    int gameWidth = Game::GetInstance()->GetBackBufferWidth() / 3 + 3;// Get game screen
+    float cx = pos.GetX() - gameWidth / 2.0f;
+    if (cx < 0)
+    {
+        cx = 0;
+    }
+    else if (cx > 2816.0f - gameWidth)
+    {
+        cx = 2816.0f - gameWidth;
+    }
+    position.SetX(cx);
+}
+
 Camera* Camera::GetInstance()
 {
     if (instance == NULL)
