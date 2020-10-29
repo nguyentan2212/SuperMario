@@ -149,6 +149,7 @@
     <ClInclude Include="BaseState.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="ChangedFigureState.h" />
+    <ClInclude Include="CollisionEvent.h" />
     <ClInclude Include="DeathState.h" />
     <ClInclude Include="FallState.h" />
     <ClInclude Include="GameDefine.h" />
@@ -181,6 +182,7 @@
     <ClCompile Include="AnimationManager.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ChangedFigureState.cpp" />
+    <ClCompile Include="CollisionEvent.cpp" />
     <ClCompile Include="DeathState.cpp" />
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="FallState.cpp" />

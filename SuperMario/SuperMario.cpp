@@ -6,10 +6,6 @@
 
 
 #define MAX_LOADSTRING 100
-#define GAME_WIDTH 780
-#define GAME_HEIGHT 614
-#define FRAME_RATE 60
-#define BACKGROUND_COLOR D3DCOLOR_XRGB(255, 255, 255)
 #define LPTEXTURE LPDIRECT3DTEXTURE9
 // Global Variables:
 HINSTANCE hInst;                                // current instance
@@ -184,7 +180,7 @@ int Run()
 	MSG msg;
 	int done = 0;
 	ULONGLONG frame_start = GetTickCount64();;
-	DWORD tick_per_frame = 1000 / FRAME_RATE;	
+	DWORD tick_per_frame = TICK_PER_FRAME;	
 
 	while (!done)
 	{

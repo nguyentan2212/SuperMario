@@ -4,9 +4,9 @@ GameObjectManager* GameObjectManager::instance = NULL;
 
 GameObjectManager::GameObjectManager()
 {
-    GameObject* obj = new Mario(0, 150);
+    GameObject* obj = new Mario(200, 150);
     gameObjects[ID_MARIO] = obj;
-    obj = new Goomba(224, 161, 5);
+    obj = new Goomba(224, 161, 0);
     gameObjects[ID_GOOMBA_1] = obj;
     camera = Camera::GetInstance();
 
@@ -39,6 +39,18 @@ void GameObjectManager::Render()
 LPGAMEOBJECT GameObjectManager::GetGameObject(int id)
 {
     return gameObjects[id];
+}
+
+LPGAMEOBJECT GameObjectManager::GetGameObject(string tag)
+{
+    for (auto it : gameObjects)
+    {
+        if (it.second->tag == tag)
+        {
+            return it.second;
+        }
+    }
+    return NULL;
 }
 
 GameObjectManager* GameObjectManager::GetInstance()

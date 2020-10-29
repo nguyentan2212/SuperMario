@@ -5,6 +5,13 @@
 #include "BaseState.h"
 
 class BaseState;
+
+struct Box
+{
+	float left, top, right, bottom;
+	Vector2D velocity;
+};
+
 class GameObject
 {
 public:
@@ -13,6 +20,9 @@ public:
 	~GameObject() {
 		delete state;
 	}
+
+	Box GetBoundingBox();
+
 	virtual void Update(float delta);
 	virtual void PlayAnimation(int index);
 	virtual void RenderAnimation(){}
@@ -26,9 +36,11 @@ public:
 	float runSpeed = 0;
 	float jumpSpeed = 0;
 	bool isActivated = true;
+	string tag = "";
 protected:
 	BaseState* state;
-	
+	int height;
+	int width;
 };
 
 typedef GameObject* LPGAMEOBJECT;

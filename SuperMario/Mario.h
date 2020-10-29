@@ -4,6 +4,7 @@
 #include "GameDefine.h"
 #include "Camera.h"
 #include "State.h"
+#include "CollisionEvent.h"
 
 using namespace std;
 

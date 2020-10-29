@@ -7,31 +7,37 @@
 Mario::Mario(float x, float y): GameObject(x, y)
 {	
 	TransitionTo(new IdleState());
-	this->runSpeed = MARIO_RUN_SPEED;
-	this->jumpSpeed = MARIO_JUMP_SPEED;
+	runSpeed = MARIO_RUN_SPEED;
+	jumpSpeed = MARIO_JUMP_SPEED;
+	width = MARIO_BIG_WIDTH;
+	height = MARIO_BIG_HEIGHT;
+	tag = "Mario";
 }
 
 Mario::Mario(const Vector2D& vec): GameObject(vec)
 {	
 	TransitionTo(new IdleState());
-	this->runSpeed = MARIO_RUN_SPEED;
-	this->jumpSpeed = MARIO_JUMP_SPEED;
+	runSpeed = MARIO_RUN_SPEED;
+	jumpSpeed = MARIO_JUMP_SPEED;
+	width = MARIO_BIG_WIDTH;
+	height = MARIO_BIG_HEIGHT;
+	tag = "Mario";
 }
 
 void Mario::Update(float delta)
 {
 	delta /= 100; // Convert delta from millisecond to 1/10 second
 	GameObject::Update(delta);
-	DebugOut(L"[MARIO.CPP] velocity x= %f, y=%f\n", velocity.GetX(), velocity.GetY());
+	//DebugOut(L"[MARIO.CPP] velocity x= %f, y=%f\n", velocity.GetX(), velocity.GetY());
 
 	
 	if (position.GetX() <= 0)// Mario goes to left border
 	{
 		position.SetX(0);
 	}
-	else if (position.GetX() >= BACKGROUND_TEXTURE_WIDTH - MARIO_WIDTH)// Mario goes to right border
+	else if (position.GetX() >= BACKGROUND_TEXTURE_WIDTH - width)// Mario goes to right border
 	{
-		position.SetX((float)(BACKGROUND_TEXTURE_WIDTH - MARIO_WIDTH));
+		position.SetX((float)(BACKGROUND_TEXTURE_WIDTH - width));
 	}
 	
 	if (position.GetY() >= 150 && !IsGrounded)
@@ -48,6 +54,16 @@ void Mario::Update(float delta)
 			TransitionTo(new IdleState());
 		}
 	}
+
+	
+		LPGAMEOBJECT goomba = GameObjectManager::GetInstance()->GetGameObject("Goomba");
+		if (goomba == NULL)
+		{
+			return;
+		}
+		LPCOLLISIONEVENT colEvent = new CollisionEvent(this, goomba);
+		if (colEvent->IsCollided()) DebugOut(L"[MARIO.CPP] time = %f\n", colEvent->EntryTime);
+	
 }
 
 void Mario::RenderAnimation()

@@ -32,18 +32,26 @@
 #define MARIO_FIGURE_SMALL              0
 #define MARIO_FIGURE_BIG                1
 #define MARIO_FIGURE_RACCOON            2
-#define MARIO_WIDTH                     17
-#define MARIO_HEIGTH                    28
+#define MARIO_BIG_WIDTH                 17
+#define MARIO_BIG_HEIGHT                28
+#define MARIO_SMALL_WIDTH               14
+#define MARIO_SMALL_HEIGHT              15
 
 // GOOMBA CONST
 #define GOOMBA_WIDTH                    15
 #define GOOMBA_HEIGHT                   15
+#define GOOMBA_DIE_HEIGHT               9
 
 // WORLD CONST
 #define GRAVITY                         17.5f
 #define SCALE_CONST                     3.0f
 #define BACKGROUND_TEXTURE_WIDTH        2816
-
+#define GAME_WIDTH                      780
+#define GAME_HEIGHT                     614
+#define FRAME_RATE                      60
+#define TICK_PER_FRAME                  1000/FRAME_RATE   
+#define BACKGROUND_COLOR                D3DCOLOR_XRGB(255, 255, 255)
+#define	COLLISION_TIME                  0.4f
 // GAMEOBJECT ID
 #define ID_MARIO                           1
 #define ID_GOOMBA_1                        2

@@ -15,6 +15,7 @@ public:
 	void Update(float delta);
 	void Render();
 	LPGAMEOBJECT GetGameObject(int id);
+	LPGAMEOBJECT GetGameObject(string tag);
 	static GameObjectManager* GetInstance();
 
 private:

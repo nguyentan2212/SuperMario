@@ -1,5 +1,17 @@
 #include "Goomba.h"
 
+
+Goomba::Goomba(float x, float y, float speed):GameObject(x,y)
+{
+	this->runSpeed = speed;
+	this->jumpSpeed = 0;
+	TransitionTo(new IdleState());
+	direction = -1;
+	width = GOOMBA_WIDTH;
+	height = GOOMBA_HEIGHT;
+	tag = "Goomba";
+}
+
 void Goomba::Update(float delta)
 {
 	delta /= 100; // Convert delta from millisecond to 1/10 second
