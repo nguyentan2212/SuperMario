@@ -53,7 +53,23 @@ SpriteManager::SpriteManager()
 	// Big Mario switch to right
 	AddSprite(10009, 424, 153, 441, 182, texture);
 	// Big Mario switch to left
-	AddSprite(100010, 4, 153, 22, 182, texture);
+	AddSprite(10010, 4, 153, 22, 182, texture);
+	// Small Mario run to right
+	AddSprite(10011, 246, 0, 259, 15, texture);
+	AddSprite(10012, 274, 0, 291, 16, texture);
+	AddSprite(10013, 305, 0, 321, 16, texture);
+	// Small Mario run to left
+	AddSprite(10014, 186, 0, 199, 15, texture);
+	AddSprite(10015, 154, 0, 171, 16, texture);
+	AddSprite(10016, 124, 0, 140, 16, texture);
+	// Small Mario jump right
+	AddSprite(10017, 394, 39, 411, 56, texture);
+	// Small Mario jump left
+	AddSprite(10018, 34, 39, 51, 56, texture);
+	// Small Mario switch right
+	AddSprite(10019, 425, 0, 440, 16, texture);
+	// Small Mario switch left
+	AddSprite(10020, 5, 0, 20, 16, texture);
 	// Goomba 
 	texture = textureManager->GetTexture(103);
 	AddSprite(10301, 0, 0, 16, 16, texture);
@@ -61,4 +77,5 @@ SpriteManager::SpriteManager()
 	AddSprite(10303, 33, 0, 48, 16, texture);
 	AddSprite(10304, 49, 0, 56, 16, texture);
 
+	DebugOut(L"[INFO] Sprites loaded Ok.\n");
 }
