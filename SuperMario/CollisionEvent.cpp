@@ -130,11 +130,11 @@ float CollisionEvent::sweptAABB(Box b1, Box b2)
 		{
 			if (yInvEntry < 0.0f)
 			{
-				direction = Vector2D::Down();
+				direction = Vector2D::Up();	
 			}
 			else
 			{
-				direction = Vector2D::Up();
+				direction = Vector2D::Down();
 			}
 		} 
 		return entryTime;

@@ -6,8 +6,8 @@
 #include "KeyHandler.h"
 #include "Vector2D.h"
 #include "Camera.h"
+#include "GameDefine.h"
 
-#define KEYBOARD_BUFFER_SIZE 1024
 
 class Game
 {
@@ -27,10 +27,11 @@ public:
 	int GetBackBufferWidth() { return backBufferWidth; }
 	int GetBackBufferHeight() { return backBufferHeight; }
 
-	void InitKeyboard(LPKEYHANDLER handler);
+	void InitKeyboard();
 	int IsKeyDown(int KeyCode);
 	void ProcessKeyboard();
 
+	LPKEYHANDLER keyHandler;
 private:
 	static Game* instance;
 
@@ -51,5 +52,4 @@ private:
 	BYTE  keyStates[256];			// DirectInput keyboard state buffer 
 	DIDEVICEOBJECTDATA keyEvents[KEYBOARD_BUFFER_SIZE];		// Buffered keyboard data
 
-	LPKEYHANDLER keyHandler;
 };

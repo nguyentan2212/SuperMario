@@ -30,7 +30,7 @@ void Mario::Update(float delta)
 	GameObject::Update(delta);
 	//DebugOut(L"[MARIO.CPP] velocity x= %f, y=%f\n", velocity.GetX(), velocity.GetY());
 
-	
+
 	if (position.GetX() <= 0)// Mario goes to left border
 	{
 		position.SetX(0);
@@ -39,14 +39,22 @@ void Mario::Update(float delta)
 	{
 		position.SetX((float)(BACKGROUND_TEXTURE_WIDTH - width));
 	}
-	
-	if (position.GetY() >= 150 && !IsGrounded)
+
+	if (IsGrounded)
 	{
-		IsGrounded = true;
-		position.SetY(150);
-		
-		if (velocity.GetX() != 0)
+		if (keyHandler->OnKeyDown(DIK_SPACE) && !keyHandler->IsStillPressed(DIK_SPACE))
 		{
+			IsGrounded = false;
+			TransitionTo(new JumpState());
+		}
+		else if (keyHandler->OnKeyDown(DIK_RIGHT))
+		{
+			direction = 1;
+			TransitionTo(new RunState());
+		}
+		else if (keyHandler->OnKeyDown(DIK_LEFT))
+		{
+			direction = -1;
 			TransitionTo(new RunState());
 		}
 		else
@@ -54,16 +62,64 @@ void Mario::Update(float delta)
 			TransitionTo(new IdleState());
 		}
 	}
-
-	
-		LPGAMEOBJECT goomba = GameObjectManager::GetInstance()->GetGameObject("Goomba");
-		if (goomba == NULL)
+	else
+	{
+		if (dynamic_cast<JumpState*>(this->state))
 		{
-			return;
+			if (keyHandler->OnKeyDown(DIK_RIGHT))
+			{
+				direction = 1;
+				velocity.SetX(runSpeed);
+			}
+			if (keyHandler->OnKeyDown(DIK_LEFT))
+			{
+				direction = -1;
+				velocity.SetX(-runSpeed);
+			}
+			if (velocity.GetY() >= 0.0f || (velocity.GetY() > -15.0f && (keyHandler->OnKeyUp(DIK_SPACE) || keyHandler->IsStillReleased(DIK_SPACE))))
+			{
+				TransitionTo(new FallState());
+			}
 		}
-		LPCOLLISIONEVENT colEvent = new CollisionEvent(this, goomba);
-		if (colEvent->IsCollided()) DebugOut(L"[MARIO.CPP] time = %f\n", colEvent->EntryTime);
-	
+		if (position.GetY() >= 150 && dynamic_cast<FallState*>(this->state))
+		{
+			IsGrounded = true;
+			position.SetY(150);
+			if (keyHandler->IsStillPressed(DIK_RIGHT) && keyHandler->IsStillPressed(DIK_LEFT))
+			{
+				TransitionTo(new RunState());
+			}
+			else if (keyHandler->IsStillPressed(DIK_RIGHT))
+			{
+				direction = 1;
+				TransitionTo(new RunState());
+			}
+			else if (keyHandler->IsStillPressed(DIK_LEFT))
+			{
+				direction = -1;
+				TransitionTo(new RunState());
+			}
+			else
+			{
+				TransitionTo(new IdleState());
+			}
+		}
+	}
+	DebugOut(L"[MARIO.CPP] velocity x = %f, y = %f\n", velocity.GetX(), velocity.GetY());
+	LPGAMEOBJECT goomba = GameObjectManager::GetInstance()->GetGameObject("Goomba");
+	if (goomba == NULL)
+	{
+		return;
+	}
+	LPCOLLISIONEVENT colEvent = new CollisionEvent(this, goomba);
+	if (colEvent->IsCollided())
+	{
+		if (colEvent->direction == Vector2D::Down())
+			DebugOut(L"[MARIO.CPP] KILL GOOMBA\n");
+		else
+			DebugOut(L"[MARIO.CPP] MARIO DEATH\n");
+	}
+
 }
 
 void Mario::RenderAnimation()
@@ -75,41 +131,4 @@ void Mario::RenderAnimation()
 	PlayAnimation(this->state->GetAnimation());
 }
 
-void Mario::SetState(int state)
-{
-	switch (state)
-	{
-	case STATE_IDLE:
-		if (IsGrounded)
-		{
-			TransitionTo(new IdleState());
-		}
-		else if (!IsGrounded)
-		{
-			velocity.SetX(0);
-		}
-		break;
-	case STATE_RUN:
-			if (IsGrounded)
-			{
-				TransitionTo(new RunState());
-			}
-			else if (velocity.GetX() == 0 && velocity.GetY() < 0)
-			{
-				velocity.SetX(MARIO_RUN_SPEED * direction);
-			}
-		break;
-	case STATE_JUMP:
-		if (IsGrounded)
-		{
-			IsGrounded = false;
-			TransitionTo(new JumpState());
-		}
-		break;
-	case STATE_FALL:
-		if (!IsGrounded)
-			TransitionTo(new FallState());
-		break;
-	}
-}
 

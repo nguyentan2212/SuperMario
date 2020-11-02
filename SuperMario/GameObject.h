@@ -3,6 +3,7 @@
 #include "Animation.h"
 #include "AnimationManager.h"
 #include "BaseState.h"
+#include "KeyHandler.h"
 
 class BaseState;
 
@@ -22,11 +23,12 @@ public:
 	}
 
 	Box GetBoundingBox();
-
+	void SetKeyHandler(LPKEYHANDLER keyHandler) {
+		this->keyHandler = keyHandler;
+	}
 	virtual void Update(float delta);
 	virtual void PlayAnimation(int index);
 	virtual void RenderAnimation(){}
-	virtual void SetState(int state){}
 	virtual void TransitionTo(BaseState* state);
 
 	Vector2D position;
@@ -41,6 +43,7 @@ protected:
 	BaseState* state;
 	int height;
 	int width;
+	LPKEYHANDLER keyHandler;
 };
 
 typedef GameObject* LPGAMEOBJECT;

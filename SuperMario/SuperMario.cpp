@@ -47,9 +47,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	game->Init(hWnd, hInstance);
 
 	// Create Key handler
-	GameObject* mario = GameObjectManager::GetInstance()->GetGameObject(ID_MARIO);
-	LPKEYHANDLER keyHander = new MarioKeyHandler(mario);
-	game->InitKeyboard(keyHander);
+	game->InitKeyboard();
 
 	SetDebugWindow(hWnd);
 	// Loads resources

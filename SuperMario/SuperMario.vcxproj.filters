@@ -90,9 +90,6 @@
     <ClInclude Include="KeyHandler.h">
       <Filter>Header Files\HID System Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MarioKeyHandler.h">
-      <Filter>Header Files\HID System Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Debug.h">
       <Filter>Header Files\Extension Header Files</Filter>
     </ClInclude>
@@ -142,7 +139,7 @@
       <Filter>Header Files\Game Object Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CollisionEvent.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Extension Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -163,9 +160,6 @@
     </ClCompile>
     <ClCompile Include="Mario.cpp">
       <Filter>Source Files\Game Object Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MarioKeyHandler.cpp">
-      <Filter>Source Files\HID System Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files\HID System Source Files</Filter>
@@ -213,7 +207,10 @@
       <Filter>Source Files\Game Object Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CollisionEvent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Extension Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyHandler.cpp">
+      <Filter>Source Files\HID System Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

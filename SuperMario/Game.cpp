@@ -119,7 +119,7 @@ int Game::IsKeyDown(int KeyCode)
 	return (keyStates[KeyCode] & 0x80) > 0;
 }
 
-void Game::InitKeyboard(LPKEYHANDLER handler)
+void Game::InitKeyboard()
 {
 	HRESULT hr = DirectInput8Create(
 		hInstance, 
@@ -164,7 +164,7 @@ void Game::InitKeyboard(LPKEYHANDLER handler)
 		return;
 	}
 
-	this->keyHandler = handler;
+	this->keyHandler = new KeyHandler();
 
 	DebugOut(L"[INFO] Keyboard has been initialized successfully\n");
 }

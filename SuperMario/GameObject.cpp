@@ -27,7 +27,7 @@ Box GameObject::GetBoundingBox()
 
 void GameObject::Update(float delta)
 {
-	velocity = velocity + acceleration * delta * delta / 2;
+	velocity = velocity + acceleration * delta / 2;
 	position = position + velocity * delta;
 }
 

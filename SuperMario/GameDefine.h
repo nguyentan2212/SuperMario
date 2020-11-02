@@ -26,7 +26,7 @@
 
 // MARIO SPEED CONST
 #define MARIO_RUN_SPEED              7.0f
-#define MARIO_JUMP_SPEED             -30.0f
+#define MARIO_JUMP_SPEED             -20.0f
 
 // MARIO CONST
 #define MARIO_FIGURE_SMALL              0
@@ -52,6 +52,9 @@
 #define TICK_PER_FRAME                  1000/FRAME_RATE   
 #define BACKGROUND_COLOR                D3DCOLOR_XRGB(255, 255, 255)
 #define	COLLISION_TIME                  0.4f
+
+#define KEYBOARD_BUFFER_SIZE            1024
+
 // GAMEOBJECT ID
 #define ID_MARIO                           1
 #define ID_GOOMBA_1                        2

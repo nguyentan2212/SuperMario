@@ -16,7 +16,6 @@ public:
 
 	void Update(float delta);		
 	void RenderAnimation();
-	void SetState(int state);	
 
 	bool IsGrounded = true;	
 };

@@ -165,7 +165,6 @@
     <ClInclude Include="JumpState.h" />
     <ClInclude Include="KeyHandler.h" />
     <ClInclude Include="Mario.h" />
-    <ClInclude Include="MarioKeyHandler.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="RunState.h" />
     <ClInclude Include="Sprite.h" />
@@ -192,8 +191,8 @@
     <ClCompile Include="Goomba.cpp" />
     <ClCompile Include="IdleState.cpp" />
     <ClCompile Include="JumpState.cpp" />
+    <ClCompile Include="KeyHandler.cpp" />
     <ClCompile Include="Mario.cpp" />
-    <ClCompile Include="MarioKeyHandler.cpp" />
     <ClCompile Include="RunState.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteHandler.cpp" />
