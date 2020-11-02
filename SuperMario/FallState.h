@@ -3,6 +3,6 @@
 class FallState : public BaseState
 {
 	void StateHandle();
-	int GetAnimation();
+	
 };
 

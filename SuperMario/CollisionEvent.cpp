@@ -143,6 +143,11 @@ float CollisionEvent::sweptAABB(Box b1, Box b2)
 
 float CollisionEvent::OnCollision(Box object, Box other)
 {
+	if (object.velocity == Vector2D::Zero() && other.velocity != Vector2D::Zero())
+	{
+		return OnCollision(other, object);
+	}
+
 	if (other.velocity != Vector2D::Zero())
 	{
 		object.velocity = object.velocity - other.velocity;

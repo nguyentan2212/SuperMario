@@ -10,9 +10,8 @@ class AnimationManager
 {
 public:
 	AnimationManager();
+	LPANIMATION GetAnimation(int index) { return animations[index]; }
 	static AnimationManager* GetInstance();
-	void RenderAnimation(int id, Vector2D vec);
-	void RenderAnimation(int id, float x, float y);
 private:
 	static AnimationManager* instance;
 	unordered_map<int, LPANIMATION> animations;

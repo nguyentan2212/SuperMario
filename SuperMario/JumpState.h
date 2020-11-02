@@ -4,6 +4,6 @@ class JumpState :public BaseState
 {
 public:
 	void StateHandle();
-	int GetAnimation();
+	
 };
 

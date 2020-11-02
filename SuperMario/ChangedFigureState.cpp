@@ -2,9 +2,7 @@
 
 void ChangedFigureState::StateHandle()
 {
+	stateId = STATE_CHANGED_FIGURE;
 }
 
-int ChangedFigureState::GetAnimation()
-{
-	return 0;
-}
+

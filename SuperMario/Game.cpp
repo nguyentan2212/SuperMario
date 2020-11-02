@@ -110,7 +110,7 @@ LPDIRECT3DTEXTURE9 Game::LoadTexture(LPCWSTR texturePath, D3DCOLOR transparentCo
 		return NULL;
 	}
 
-	DebugOut(L"[INFO] Texture loaded Ok.");
+	DebugOut(L"[INFO] Texture loaded Ok.\n");
 	return texture;
 }
 

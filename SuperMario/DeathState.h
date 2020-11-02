@@ -3,6 +3,6 @@
 class DeathState :public BaseState
 {
 	void StateHandle();
-	int GetAnimation();
+
 };
 

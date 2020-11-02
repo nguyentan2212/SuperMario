@@ -12,6 +12,7 @@ Mario::Mario(float x, float y): GameObject(x, y)
 	width = MARIO_BIG_WIDTH;
 	height = MARIO_BIG_HEIGHT;
 	tag = "Mario";
+	figure = FIGURE_BIG;
 }
 
 Mario::Mario(const Vector2D& vec): GameObject(vec)
@@ -22,6 +23,7 @@ Mario::Mario(const Vector2D& vec): GameObject(vec)
 	width = MARIO_BIG_WIDTH;
 	height = MARIO_BIG_HEIGHT;
 	tag = "Mario";
+	figure = FIGURE_BIG;
 }
 
 void Mario::Update(float delta)
@@ -105,19 +107,30 @@ void Mario::Update(float delta)
 			}
 		}
 	}
-	DebugOut(L"[MARIO.CPP] velocity x = %f, y = %f\n", velocity.GetX(), velocity.GetY());
+	
 	LPGAMEOBJECT goomba = GameObjectManager::GetInstance()->GetGameObject("Goomba");
 	if (goomba == NULL)
 	{
 		return;
 	}
 	LPCOLLISIONEVENT colEvent = new CollisionEvent(this, goomba);
+	DebugOut(L"[MARIO.CPP] entry time x = %f\n", colEvent->EntryTime);
 	if (colEvent->IsCollided())
 	{
 		if (colEvent->direction == Vector2D::Down())
 			DebugOut(L"[MARIO.CPP] KILL GOOMBA\n");
 		else
+		{
 			DebugOut(L"[MARIO.CPP] MARIO DEATH\n");
+			if (figure == FIGURE_BIG)
+			{
+				figure = FIGURE_SMALL;
+			}
+			else
+			{
+				figure = FIGURE_BIG;
+			}
+		}
 	}
 
 }
@@ -128,7 +141,6 @@ void Mario::RenderAnimation()
 	{
 		return;
 	}
-	PlayAnimation(this->state->GetAnimation());
+	PlayAnimation(make_tuple(figure, state->GetId(), direction));
 }
-
 

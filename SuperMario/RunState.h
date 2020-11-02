@@ -4,6 +4,5 @@ class RunState :public BaseState
 { 
 public:
 	void StateHandle();
-	int GetAnimation();
 };
 

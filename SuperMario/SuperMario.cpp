@@ -138,6 +138,7 @@ void LoadResource()
 	LoadSprites();
 	// Build animations
 	BuildAnimation();
+
 }
 
 void Render()
@@ -160,16 +161,6 @@ void Render()
 	d3ddv->Present(NULL, NULL, NULL, NULL);
 }
 
-void Update(float delta)
-{
-	//mario->Update(delta);
-	/*if (mario->position.GetX() > 80 && goomba->runSpeed == 0)
-	{
-		goomba->runSpeed = MARIO_RUN_SPEED * 2 / 3;
-		goomba->SetState(STATE_RUN);
-	}*/
-	//goomba->Update(delta);
-}
 
 int Run()
 {

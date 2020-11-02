@@ -3,6 +3,6 @@
 class ChangedFigureState : public BaseState
 {
 	void StateHandle();
-	int GetAnimation();
+	
 };
 

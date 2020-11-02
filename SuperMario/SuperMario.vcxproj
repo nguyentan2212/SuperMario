@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="AniTuple.h" />
     <ClInclude Include="BaseState.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="ChangedFigureState.h" />
