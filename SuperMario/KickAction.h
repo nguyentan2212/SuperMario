@@ -1,6 +1,6 @@
 #pragma once
 #include "BaseState.h"
-class DeathState :public BaseState
+class KickAction : public BaseState
 {
 public:
 	void StateHandle();

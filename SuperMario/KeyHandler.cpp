@@ -17,7 +17,7 @@ bool KeyHandler::OnKeyDown(int keyCode)
 
 bool KeyHandler::OnKeyUp(int keyCode)
 {
-	return !keyEvents[keyCode];
+	return !keyEvents[keyCode] && previousKeyEvents[keyCode];
 }
 
 void KeyHandler::Update(DIDEVICEOBJECTDATA* keyEvents, DWORD dwElements)
@@ -44,4 +44,16 @@ bool KeyHandler::IsStillPressed(int keyCode)
 bool KeyHandler::IsStillReleased(int keyCode)
 {
 	return !keyEvents[keyCode] && !previousKeyEvents[keyCode];
+}
+
+bool KeyHandler::AnyKeyPressed()
+{
+	for (int i = 0; i < KEYBOARD_BUFFER_SIZE; i++)
+	{
+		if (this->keyEvents[i])
+		{
+			return true;
+		}
+	}
+	return false;
 }

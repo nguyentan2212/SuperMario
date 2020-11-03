@@ -11,6 +11,8 @@ public:
 	void Update(DIDEVICEOBJECTDATA* keyEvents, DWORD dwElements);
 	bool IsStillPressed(int keyCode);
 	bool IsStillReleased(int keyCode);
+	bool AnyKeyPressed();
+
 private:
 	bool* keyEvents = new bool[KEYBOARD_BUFFER_SIZE];
 	bool* previousKeyEvents = new bool[KEYBOARD_BUFFER_SIZE];

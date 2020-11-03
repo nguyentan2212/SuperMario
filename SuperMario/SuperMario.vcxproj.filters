@@ -51,9 +51,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="targetver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SuperMario.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -142,7 +139,19 @@
       <Filter>Header Files\Extension Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AniTuple.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Extension Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files\Extension Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KickAction.h">
+      <Filter>Header Files\Game Object Header Files\State Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SitState.h">
+      <Filter>Header Files\Game Object Header Files\State Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SwitchAction.h">
+      <Filter>Header Files\Game Object Header Files\State Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -214,6 +223,15 @@
     </ClCompile>
     <ClCompile Include="KeyHandler.cpp">
       <Filter>Source Files\HID System Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SitState.cpp">
+      <Filter>Source Files\Game Object Source Files\State Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KickAction.cpp">
+      <Filter>Source Files\Game Object Source Files\State Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SwitchAction.cpp">
+      <Filter>Source Files\Game Object Source Files\State Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

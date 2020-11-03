@@ -15,7 +15,6 @@ Goomba::Goomba(float x, float y, float speed):GameObject(x,y)
 
 void Goomba::Update(float delta)
 {
-	delta /= 100; // Convert delta from millisecond to 1/10 second
 	GameObject::Update(delta);
 	if (position.GetX() <= 0)
 	{

@@ -36,6 +36,7 @@ public:
 	virtual void TransitionTo(BaseState* state);
 
 	Vector2D position;
+	Vector2D renderPosition;
 	int direction = 1;
 	Vector2D velocity = Vector2D();
 	Vector2D acceleration = Vector2D();

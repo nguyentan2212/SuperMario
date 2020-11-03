@@ -165,14 +165,17 @@
     <ClInclude Include="IdleState.h" />
     <ClInclude Include="JumpState.h" />
     <ClInclude Include="KeyHandler.h" />
+    <ClInclude Include="KickAction.h" />
     <ClInclude Include="Mario.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="RunState.h" />
+    <ClInclude Include="SitState.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteHandler.h" />
     <ClInclude Include="SpriteManager.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="SuperMario.h" />
+    <ClInclude Include="SwitchAction.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Vector2D.h" />
@@ -193,12 +196,15 @@
     <ClCompile Include="IdleState.cpp" />
     <ClCompile Include="JumpState.cpp" />
     <ClCompile Include="KeyHandler.cpp" />
+    <ClCompile Include="KickAction.cpp" />
     <ClCompile Include="Mario.cpp" />
     <ClCompile Include="RunState.cpp" />
+    <ClCompile Include="SitState.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteHandler.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
     <ClCompile Include="SuperMario.cpp" />
+    <ClCompile Include="SwitchAction.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Vector2D.cpp" />
   </ItemGroup>

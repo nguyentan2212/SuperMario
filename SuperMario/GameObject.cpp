@@ -5,6 +5,10 @@ GameObject::GameObject(float x, float y):state(nullptr)
 	this->velocity.SetVector(0, 0);
 	this->acceleration.SetVector(0, 0);
 	position.SetVector(x, y);
+	renderPosition = position;
+	height = 0;
+	width = 0;
+	keyHandler = NULL;
 }
 
 GameObject::GameObject(Vector2D vec) :state(nullptr)
@@ -12,6 +16,10 @@ GameObject::GameObject(Vector2D vec) :state(nullptr)
 	this->velocity.SetVector(0, 0);
 	this->acceleration.SetVector(0, 0);
 	position.SetVector(vec);
+	renderPosition = position;
+	height = 0;
+	width = 0;
+	keyHandler = NULL;
 }
 
 Box GameObject::GetBoundingBox()
@@ -27,13 +35,15 @@ Box GameObject::GetBoundingBox()
 
 void GameObject::Update(float delta)
 {
+	delta /= 100;
 	velocity = velocity + acceleration * delta / 2;
 	position = position + velocity * delta;
+	renderPosition = position;
 }
 
 void GameObject::PlayAnimation(ANITUPLE index)
 {
-	animations[index]->Render(position);
+	animations[index]->Render(renderPosition);
 }
 
 // figure, state or action, direction, animation's pointer
