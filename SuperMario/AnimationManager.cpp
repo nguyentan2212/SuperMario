@@ -319,12 +319,42 @@ AnimationManager::AnimationManager()
 	ani = new Animation(ANI_DEFAULT_TIME);
 	ani->Add(spriteManager->GetSprite(10201));
 	animations[ANI_BACKGROUND] = ani;
-
-	//Build Goomba animation
+#pragma region Goomba animations
+	//Build Goomba animation run
 	ani = new Animation(ANI_DEFAULT_TIME);
 	ani->Add(spriteManager->GetSprite(10301));
 	ani->Add(spriteManager->GetSprite(10302));
 	animations[ANI_GOOMBA_RUN] = ani;
+
+	// Goomba death animation
+	ani = new Animation(ANI_LONG_TIME);
+	ani->Add(spriteManager->GetSprite(10303));
+	animations[ANI_GOOMBA_DEATH] = ani;
+#pragma endregion
+#pragma region Koopa animations
+	ani = new Animation(ANI_DEFAULT_TIME);
+	ani->Add(spriteManager->GetSprite(10401));
+	ani->Add(spriteManager->GetSprite(10402));
+	animations[ANI_KOOPA_RUN_LEFT] = ani;
+
+	ani = new Animation(ANI_DEFAULT_TIME);
+	ani->Add(spriteManager->GetSprite(10403));
+	ani->Add(spriteManager->GetSprite(10404));
+	animations[ANI_KOOPA_RUN_RIGHT] = ani;
+
+	ani = new Animation(ANI_DEFAULT_TIME);
+	ani->Add(spriteManager->GetSprite(10405));
+	ani->Add(spriteManager->GetSprite(10406));
+	ani->Add(spriteManager->GetSprite(10407));
+	ani->Add(spriteManager->GetSprite(10408));
+	animations[ANI_KOOPA_CRAZY] = ani;
+
+	ani = new Animation(ANI_DEFAULT_TIME);
+	ani->Add(spriteManager->GetSprite(10409));
+	animations[ANI_KOOPA_STUN] = ani;
+#pragma endregion
+
+	
 
 	DebugOut(L"[INFO] Animations loaded Ok.\n");
 }

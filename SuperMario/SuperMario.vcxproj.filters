@@ -153,6 +153,12 @@
     <ClInclude Include="SwitchAction.h">
       <Filter>Header Files\Game Object Header Files\State Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Koopa.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CrazyState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SuperMario.cpp">
@@ -232,6 +238,12 @@
     </ClCompile>
     <ClCompile Include="SwitchAction.cpp">
       <Filter>Source Files\Game Object Source Files\State Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Koopa.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CrazyState.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

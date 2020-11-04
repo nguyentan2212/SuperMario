@@ -29,6 +29,15 @@ Mario::Mario(const Vector2D& vec): GameObject(vec)
 void Mario::Update(float delta)
 {
 	GameObject::Update(delta);
+	DebugOut(L"[Mario.cpp] state = %d\n", this->state->GetId());
+	if (dynamic_cast<DeathState*>(this->state))
+	{
+		return;
+	}
+	if (figure == FIGURE_SMALL)
+	{
+		renderPosition = position + Vector2D(0, 14);
+	}
 	if (actionTimer > 0)
 	{
 		actionTimer -= delta;
@@ -37,7 +46,7 @@ void Mario::Update(float delta)
 	{
 		actionTimer = 0.0f;
 	}
-	DebugOut(L"[MARIO.CPP] actionTimer = %f\n", actionTimer);
+
 	if (position.GetX() <= 0)// Mario goes to left border
 	{
 		position.SetX(0);
@@ -107,6 +116,10 @@ void Mario::Update(float delta)
 			renderPosition = position + Vector2D(0, 10);
 			TransitionTo(new SitState());
 		}
+		else if (keyHandler->OnKeyUp(DIK_DOWN)&& dynamic_cast<SitState*>(this->state))
+		{
+			renderPosition = position;
+		}
 		else if (keyHandler->OnKeyDown(DIK_K))
 		{
 			actionTimer = ANI_LONG_TIME;
@@ -129,6 +142,13 @@ void Mario::Update(float delta)
 	}
 	else
 	{
+		if (position.GetY() >= 148 && dynamic_cast<FallState*>(this->state))
+		{
+			IsGrounded = true;
+			position.SetY(148);
+			TransitionTo(new IdleState());
+		}
+
 		if (keyHandler->OnKeyDown(DIK_RIGHT))
 		{
 			direction = 1;
@@ -139,53 +159,36 @@ void Mario::Update(float delta)
 			direction = -1;
 			velocity.SetX(-runSpeed);
 		}
-		if (dynamic_cast<JumpState*>(this->state))
+		if (!dynamic_cast<FallState*>(this->state))
 		{
-			if (velocity.GetY() >= 0.0f || (velocity.GetY() > -18.0f && (keyHandler->OnKeyUp(DIK_SPACE) || keyHandler->IsStillReleased(DIK_SPACE))))
+			if (velocity.GetY() >= 0.0f) 
+			{
+				TransitionTo(new FallState());
+			}
+			else if (velocity.GetY() > -20.0f && keyHandler->IsStillReleased(DIK_SPACE))
 			{
 				TransitionTo(new FallState());
 			}
 		}
-		if (position.GetY() >= 150 && dynamic_cast<FallState*>(this->state))
-		{
-			IsGrounded = true;
-			position.SetY(150);			
-			TransitionTo(new IdleState());
-		}
+		
 	}
 	if (keyHandler->OnKeyDown(DIK_B))
 	{
-		figure = FIGURE_BIG;
+		ChangeFigure(FIGURE_BIG);
 	}
 	else if (keyHandler->OnKeyDown(DIK_R))
 	{
-		figure = FIGURE_RACCOON;
+		ChangeFigure(FIGURE_RACCOON);
 	}
 	else if (keyHandler->OnKeyDown(DIK_S))
 	{
-		figure = FIGURE_SMALL;
+		ChangeFigure(FIGURE_SMALL);
 	}
 	else if (keyHandler->OnKeyDown(DIK_F))
 	{
-		figure = FIGURE_FIRE;
+		ChangeFigure(FIGURE_FIRE);
 	}
-	LPGAMEOBJECT goomba = GameObjectManager::GetInstance()->GetGameObject("Goomba");
-	if (goomba == NULL)
-	{
-		return;
-	}
-	LPCOLLISIONEVENT colEvent = new CollisionEvent(this, goomba);
-	DebugOut(L"[MARIO.CPP] entry time x = %f\n", colEvent->EntryTime);
-	if (colEvent->IsCollided())
-	{
-		if (colEvent->direction == Vector2D::Down())
-			DebugOut(L"[MARIO.CPP] KILL GOOMBA\n");
-		else if (dynamic_cast<KickAction*>(this->state))
-		{
-			goomba->position.SetVector(150, 160);
-			//figure = (figure == FIGURE_FIRE) ? FIGURE_BIG : FIGURE_FIRE;
-		}
-	}
+	CollisionCheck();
 
 }
 
@@ -195,6 +198,84 @@ void Mario::RenderAnimation()
 	{
 		return;
 	}
-	PlayAnimation(make_tuple(figure, state->GetId(), direction));
+	if (dynamic_cast<DeathState*>(this->state))
+	{
+		PlayAnimation(make_tuple(FIGURE_SMALL, STATE_DEATH, NULL));
+	}
+	else
+	{
+		PlayAnimation(make_tuple(figure, state->GetId(), direction));
+	}
+	
+}
+
+void Mario::ChangeFigure(int figure)
+{
+	if (figure == FIGURE_SMALL)
+	{
+		renderPosition = position + Vector2D(0, 14);
+	}
+	else
+	{
+		renderPosition = position;
+	}
+	this->figure = figure;
+}
+
+void Mario::CollisionCheck()
+{
+	// check with goomba
+	LPGAMEOBJECT object = GameObjectManager::GetInstance()->GetGameObject(ID_GOOMBA_1);
+	LPCOLLISIONEVENT colEvent = new CollisionEvent(this, object);
+
+	if (colEvent->IsCollided() && object->isActivated)
+	{
+		if (colEvent->direction == Vector2D::Down())
+		{
+			object->TransitionTo(new DeathState());
+			TransitionTo(new JumpState());
+		}
+		else
+		{
+			if (figure != FIGURE_SMALL)
+			{
+				ChangeFigure(FIGURE_SMALL);
+			}
+			else
+			{
+				IsGrounded = true;
+				TransitionTo(new DeathState());
+			}
+		}
+	}
+
+	// check with koopa
+	object = GameObjectManager::GetInstance()->GetGameObject(ID_KOOPA_1);
+	colEvent = new CollisionEvent(this, object);
+	if (colEvent->IsCollided() && object->isActivated)
+	{
+		if (colEvent->direction == Vector2D::Down())
+		{
+			if (dynamic_cast<RunState*>(object->state))
+			{
+				object->renderPosition = object->position + Vector2D(0, 13);
+				object->TransitionTo(new CrazyState());
+			}
+			TransitionTo(new JumpState());
+		}
+		else
+		{
+			if (figure != FIGURE_SMALL)
+			{
+				ChangeFigure(FIGURE_SMALL);
+			}
+			else
+			{
+				IsGrounded = true;
+				TransitionTo(new DeathState());
+			}
+		}
+	}
+
 }
 

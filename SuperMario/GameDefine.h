@@ -75,7 +75,14 @@
 
 #define ANI_BACKGROUND                  200
 //--GOOMBA
-#define ANI_GOOMBA_RUN                  210
+#define ANI_GOOMBA_RUN                  301
+#define ANI_GOOMBA_DEATH                302
+
+//--KOOPA
+#define ANI_KOOPA_RUN_RIGHT            401
+#define ANI_KOOPA_RUN_LEFT             402
+#define ANI_KOOPA_CRAZY                403
+#define ANI_KOOPA_STUN                 404
 
 #define FIGURE_SMALL              1
 #define FIGURE_BIG                2
@@ -91,6 +98,8 @@
 #define STATE_CHANGED_FIGURE      5
 #define STATE_DEATH               6
 #define STATE_SIT                 7
+#define STATE_STUN                8
+#define STATE_CRAZY               9
 // ACTION CONST
 #define SWITCH                    10
 #define HOLD                      11
@@ -107,6 +116,11 @@
 #define GOOMBA_WIDTH                    15
 #define GOOMBA_HEIGHT                   15
 #define GOOMBA_DIE_HEIGHT               9
+
+// KOOPA
+#define KOOPA_WIDTH                    15
+#define KOOPA_HEIGHT                   27
+#define KOOPA_STUN_HEIGHT              15
 #pragma endregion width and height of sprites
 #pragma region Physics const
 // MARIO SPEED CONST
@@ -114,7 +128,13 @@
 #define MARIO_JUMP_SPEED             -28.0f
 #define MARIO_SUPER_RUN_SPEED        12.0f
 #define MARIO_SUPER_JUMP_SPEED       -35.0f
+#define MARIO_SHORT_JUMP_SPEED       -18.0f
 #define MARIO_RUNNING_TIMER          150.0f
+
+//
+#define GOOMBA_RUN_SPEED             5.0f
+#define KOOPA_RUN_SPEED              5.0f
+#define KOOPA_SUPER_RUN_SPEED        10.0f
 // WORLD CONST
 #define GRAVITY                         10.0f
 #define SCALE_CONST                     3.0f
@@ -129,12 +149,13 @@
 #define FRAME_RATE                      50
 #define TICK_PER_FRAME                  1000/FRAME_RATE   
 #define BACKGROUND_COLOR                D3DCOLOR_XRGB(255, 255, 255)
-#define	COLLISION_TIME                  0.8f
+#define	COLLISION_TIME                  0.4f
 
 #define KEYBOARD_BUFFER_SIZE            1024
 
 // GAMEOBJECT ID
 #define ID_MARIO                           1
 #define ID_GOOMBA_1                        2
+#define ID_KOOPA_1                         10
 #pragma endregion 
 

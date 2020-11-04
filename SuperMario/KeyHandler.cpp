@@ -32,7 +32,7 @@ void KeyHandler::Update(DIDEVICEOBJECTDATA* keyEvents, DWORD dwElements)
 		this->keyEvents[keyEvents[i].dwOfs] = (keyEvents[i].dwData & 0x80) > 0;
 	}
 	
-	DebugOut(L"[MARIO.CPP] code = %d\n", keyEvents[0].dwOfs);
+	DebugOut(L"[KeyHandler.cpp] code = %d\n", keyEvents[0].dwOfs);
 
 }
 

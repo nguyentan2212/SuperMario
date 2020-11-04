@@ -16,8 +16,11 @@ public:
 
 	void Update(float delta);		
 	void RenderAnimation();
-
+	void ChangeFigure(int figure);
 	bool IsGrounded = true;	
 	float runningTimer = 0.0f;
 	float actionTimer = 0.0f;
+
+private:
+	void CollisionCheck();
 };

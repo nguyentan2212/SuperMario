@@ -43,7 +43,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	}
 
 	// Creates game instance
-	Game* game = Game::GetInstance();
+	Game* game = Game::GetInstance(); 
 	game->Init(hWnd, hInstance);
 
 	// Create Key handler
@@ -118,6 +118,7 @@ void LoadTextures()
 	textureManager->AddTexture(101, game->LoadTexture(L"misc.png", D3DCOLOR_XRGB(176, 224, 248)));
 	textureManager->AddTexture(102, game->LoadTexture(L"background.png", BLACK_BRUSH));
 	textureManager->AddTexture(103, game->LoadTexture(L"goomba.png", D3DCOLOR_XRGB(68, 145, 190)));
+	textureManager->AddTexture(104, game->LoadTexture(L"Koopa.png", D3DCOLOR_XRGB(68, 145, 190)));
 }
 
 void LoadSprites()

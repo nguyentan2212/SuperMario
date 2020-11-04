@@ -3,6 +3,7 @@
 #include "GameObject.h"
 #include "Mario.h"
 #include "Goomba.h"
+#include "Koopa.h"
 #include "Camera.h"
 #include <unordered_map>
 

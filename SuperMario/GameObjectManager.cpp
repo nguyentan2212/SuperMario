@@ -6,7 +6,7 @@ GameObjectManager::GameObjectManager()
 {
     AnimationManager* am = AnimationManager::GetInstance();
 
-    GameObject* obj = new Mario(0, 150);
+    GameObject* obj = new Mario(0, 148);
     obj->SetKeyHandler(Game::GetInstance()->keyHandler);
 #pragma region Big Mario animations
     obj->AddAnimation(FIGURE_BIG, STATE_IDLE, LEFT, am->GetAnimation(ANI_MARIO_BIG_IDLE_LEFT));
@@ -71,15 +71,19 @@ GameObjectManager::GameObjectManager()
     obj->AddAnimation(FIGURE_FIRE, KICK, LEFT, am->GetAnimation(ANI_MARIO_FIRE_KICK_LEFT));
     obj->AddAnimation(FIGURE_FIRE, KICK, RIGHT, am->GetAnimation(ANI_MARIO_FIRE_KICK_RIGHT));
 #pragma endregion
-
-
-    
     gameObjects[ID_MARIO] = obj;
 
-    obj = new Goomba(224, 161, 5);
+    obj = new Goomba(224, 161, 0);
     obj->AddAnimation(NULL, STATE_RUN, NULL, am->GetAnimation(ANI_GOOMBA_RUN));
+    obj->AddAnimation(NULL, STATE_DEATH, NULL, am->GetAnimation(ANI_GOOMBA_DEATH));
     gameObjects[ID_GOOMBA_1] = obj;
     
+    obj = new Koopa(100, 149, 5);
+    obj->AddAnimation(NULL, STATE_RUN, RIGHT, am->GetAnimation(ANI_KOOPA_RUN_RIGHT));
+    obj->AddAnimation(NULL, STATE_RUN, LEFT, am->GetAnimation(ANI_KOOPA_RUN_LEFT));
+    obj->AddAnimation(NULL, STATE_STUN, NULL, am->GetAnimation(ANI_KOOPA_STUN));
+    obj->AddAnimation(NULL, STATE_CRAZY, NULL, am->GetAnimation(ANI_KOOPA_CRAZY));
+    gameObjects[ID_KOOPA_1] = obj;
     camera = Camera::GetInstance();
 }
 

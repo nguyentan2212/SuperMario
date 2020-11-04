@@ -34,7 +34,9 @@ public:
 
 	virtual void Update(float delta);
 	virtual void TransitionTo(BaseState* state);
+	virtual void ChangeFgiure(int figure) {
 
+	}
 	Vector2D position;
 	Vector2D renderPosition;
 	int direction = 1;
@@ -42,11 +44,13 @@ public:
 	Vector2D acceleration = Vector2D();
 	float runSpeed = 0.0f;
 	float jumpSpeed = 0.0f;
+	float deathTimer = 0.0f;
 	int figure = 0;
 	bool isActivated = true;
 	string tag = "";
-protected:
 	BaseState* state;
+protected:
+	
 	int height;
 	int width;
 	LPKEYHANDLER keyHandler;

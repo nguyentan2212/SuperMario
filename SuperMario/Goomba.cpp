@@ -1,6 +1,5 @@
 #include "Goomba.h"
 
-
 Goomba::Goomba(float x, float y, float speed):GameObject(x,y)
 {
 	this->runSpeed = speed;

@@ -153,5 +153,19 @@ SpriteManager::SpriteManager()
 	AddSprite(10303, 33, 0, 48, 16, texture);
 	AddSprite(10304, 49, 0, 56, 16, texture);
 
+	// Koopa
+	texture = textureManager->GetTexture(104);
+	AddSprite(10401, 0, 2, 16, 29, texture);
+	AddSprite(10402, 17, 2, 33, 30, texture);
+	AddSprite(10403, 0, 35, 16, 62, texture);
+	AddSprite(10404, 16, 35, 33, 63, texture);
+
+	AddSprite(10405, 34, 0, 49, 16, texture);
+	AddSprite(10406, 51, 0, 66, 16, texture);
+	AddSprite(10407, 68, 0, 83, 16, texture);
+	AddSprite(10408, 85, 0, 100, 16, texture);
+
+	AddSprite(10409, 34, 17, 50, 33, texture);
+
 	DebugOut(L"[INFO] Sprites loaded Ok.\n");
 }

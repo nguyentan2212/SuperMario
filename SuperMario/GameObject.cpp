@@ -1,4 +1,5 @@
 #include "GameObject.h"
+#include "DeathState.h"
 
 GameObject::GameObject(float x, float y):state(nullptr)
 {
@@ -35,6 +36,15 @@ Box GameObject::GetBoundingBox()
 
 void GameObject::Update(float delta)
 {
+	if (deathTimer > 0.0f)
+	{
+		deathTimer -= delta;
+	}
+	else if (deathTimer <= 0.0f && dynamic_cast<DeathState*>(this->state))
+	{
+		deathTimer = 0.0f;
+		isActivated = false;
+	}
 	delta /= 100;
 	velocity = velocity + acceleration * delta / 2;
 	position = position + velocity * delta;
