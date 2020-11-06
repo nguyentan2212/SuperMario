@@ -22,5 +22,7 @@ public:
 	float actionTimer = 0.0f;
 
 private:
+	float untouchableTimer = 0.0f;
 	void CollisionCheck();
+	LPGAMEOBJECT CheckGrounded();
 };

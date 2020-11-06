@@ -7,5 +7,8 @@ public:
 	Koopa(float x, float y, float speed);
 	void Update(float delta);
 	void RenderAnimation();
+
+private:
+	float actionTimer;
 };
 

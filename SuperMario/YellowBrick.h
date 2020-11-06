@@ -6,17 +6,26 @@ using namespace std;
 class YellowBrick : public GameObject
 {
 public:
-	YellowBrick(float x, float y) : GameObject(x, y){}
-	YellowBrick(Vector2D vec) : GameObject(vec){}
+	YellowBrick(float x, float y, float height, float width) : GameObject(x, y) { 
+		this->height = height; 
+		this->width = width; 
+		this->tag = "Ground";
+	}
+	YellowBrick(Vector2D vec) : GameObject(vec) {
+		this->height = height;
+		this->width = width;
+		this->tag = "Ground";
+	}
 
 	void Update(float delta){}
-	void SetSprite(LPSPRITE sprite){}
-	void RenderSprite(){}
-	void AddAnimation(LPANIMATION animation){ animations.push_back(animation); }
-	void PlayAnimation(int index){ if (index < animations.size()) animations[index]->Render(position); }
-	void RenderAnimation() { PlayAnimation(0); }
+	void SetSprite(LPSPRITE sprite) {
+		this->sprite = sprite;
+	}
+	void RenderAnimation() {
+		//this->sprite->Draw(position);
+	}
 
 private:
-	vector<LPANIMATION> animations;
+	LPSPRITE sprite = NULL;
 };
 

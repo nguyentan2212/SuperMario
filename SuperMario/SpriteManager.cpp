@@ -167,5 +167,10 @@ SpriteManager::SpriteManager()
 
 	AddSprite(10409, 34, 17, 50, 33, texture);
 
+
+	// brick
+	texture = textureManager->GetTexture(101);
+	AddSprite(10101, 300, 135, 387, 150, texture);
+	AddSprite(10102, 300, 135, 315, 150, texture);
 	DebugOut(L"[INFO] Sprites loaded Ok.\n");
 }

@@ -159,6 +159,9 @@
     <ClInclude Include="CrazyState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="YellowBrick.h">
+      <Filter>Header Files\Game Object Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SuperMario.cpp">
@@ -244,6 +247,9 @@
     </ClCompile>
     <ClCompile Include="CrazyState.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="YellowBrick.cpp">
+      <Filter>Source Files\Game Object Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -351,7 +351,7 @@ AnimationManager::AnimationManager()
 
 	ani = new Animation(ANI_DEFAULT_TIME);
 	ani->Add(spriteManager->GetSprite(10409));
-	animations[ANI_KOOPA_STUN] = ani;
+	animations[ANI_KOOPA_IDLE] = ani;
 #pragma endregion
 
 	

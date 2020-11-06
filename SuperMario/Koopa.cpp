@@ -4,12 +4,14 @@ Koopa::Koopa(float x, float y, float speed):GameObject(x,y)
 {
 	this->runSpeed = speed;
 	this->direction = -1;
+	actionTimer = 0.0f;
 	TransitionTo(new RunState());
 }
 
 void Koopa::Update(float delta)
 {
 	GameObject::Update(delta);
+	
 	DebugOut(L"[Koopa.cpp] state = %d\n", this->state->GetId());
 	if (position.GetX() <= 0)
 	{
@@ -28,6 +30,11 @@ void Koopa::Update(float delta)
 		renderPosition = position + Vector2D(0, 13);
 		TransitionTo(new CrazyState());
 	}
+	else if (dynamic_cast<IdleState*>(this->state))
+	{
+		renderPosition = position + Vector2D(0, 13);
+		TransitionTo(new IdleState());
+	}
 }
 
 void Koopa::RenderAnimation()
@@ -43,6 +50,5 @@ void Koopa::RenderAnimation()
 	else
 	{
 		PlayAnimation(make_tuple(NULL, this->state->GetId(), NULL));
-	}
-	
+	}	
 }

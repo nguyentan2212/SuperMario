@@ -6,7 +6,46 @@ GameObjectManager::GameObjectManager()
 {
     AnimationManager* am = AnimationManager::GetInstance();
 
-    GameObject* obj = new Mario(0, 148);
+    GameObject* obj;
+#pragma region Ground
+    obj = new YellowBrick(0, 176, 0.2f, 623);
+    obj->SetSprite(SpriteManager::GetInstance()->GetSprite(10101));
+    gameObjects[ID_GROUND_1] = obj;
+    
+    obj = new YellowBrick(240, 128, 0.2f, 47);
+    obj->SetSprite(SpriteManager::GetInstance()->GetSprite(10101));
+    gameObjects[ID_GROUND_2] = obj;
+    
+    obj = new YellowBrick(272, 96, 0.2f, 47);
+    obj->SetSprite(SpriteManager::GetInstance()->GetSprite(10101));
+    gameObjects[ID_GROUND_3] = obj;
+    
+    obj = new YellowBrick(352, 128, 47, 31);
+    obj->SetSprite(SpriteManager::GetInstance()->GetSprite(10102));
+    obj->tag = "pipe";
+    gameObjects[ID_GROUND_4] = obj;
+
+    obj = new YellowBrick(400, 128, 0.2f, 79);
+    obj->SetSprite(SpriteManager::GetInstance()->GetSprite(10102));
+    gameObjects[ID_GROUND_5] = obj;
+    
+    obj = new YellowBrick(464, 96, 0.2, 63);
+    obj->SetSprite(SpriteManager::GetInstance()->GetSprite(10101));
+    gameObjects[ID_GROUND_6] = obj;
+    
+    obj = new YellowBrick(512, 64, 0.2f, 63);
+    obj->SetSprite(SpriteManager::GetInstance()->GetSprite(10101));
+    gameObjects[ID_GROUND_7] = obj;
+
+    obj = new YellowBrick(512, 144, 0.2f, 95);
+    obj->SetSprite(SpriteManager::GetInstance()->GetSprite(10101));
+    gameObjects[ID_GROUND_8] = obj;
+
+#pragma endregion
+
+    
+
+    obj = new Mario(0, gameObjects[ID_GROUND_1]->position.GetY() - MARIO_BIG_HEIGHT);
     obj->SetKeyHandler(Game::GetInstance()->keyHandler);
 #pragma region Big Mario animations
     obj->AddAnimation(FIGURE_BIG, STATE_IDLE, LEFT, am->GetAnimation(ANI_MARIO_BIG_IDLE_LEFT));
@@ -73,17 +112,19 @@ GameObjectManager::GameObjectManager()
 #pragma endregion
     gameObjects[ID_MARIO] = obj;
 
-    obj = new Goomba(224, 161, 0);
+    obj = new Goomba(224, 161, 2);
     obj->AddAnimation(NULL, STATE_RUN, NULL, am->GetAnimation(ANI_GOOMBA_RUN));
     obj->AddAnimation(NULL, STATE_DEATH, NULL, am->GetAnimation(ANI_GOOMBA_DEATH));
     gameObjects[ID_GOOMBA_1] = obj;
     
-    obj = new Koopa(100, 149, 5);
+    obj = new Koopa(200, 149, 4);
     obj->AddAnimation(NULL, STATE_RUN, RIGHT, am->GetAnimation(ANI_KOOPA_RUN_RIGHT));
     obj->AddAnimation(NULL, STATE_RUN, LEFT, am->GetAnimation(ANI_KOOPA_RUN_LEFT));
-    obj->AddAnimation(NULL, STATE_STUN, NULL, am->GetAnimation(ANI_KOOPA_STUN));
+    obj->AddAnimation(NULL, STATE_IDLE, NULL, am->GetAnimation(ANI_KOOPA_IDLE));
     obj->AddAnimation(NULL, STATE_CRAZY, NULL, am->GetAnimation(ANI_KOOPA_CRAZY));
     gameObjects[ID_KOOPA_1] = obj;
+
+    
     camera = Camera::GetInstance();
 }
 
@@ -116,16 +157,17 @@ LPGAMEOBJECT GameObjectManager::GetGameObject(int id)
     return gameObjects[id];
 }
 
-LPGAMEOBJECT GameObjectManager::GetGameObject(string tag)
+vector<LPGAMEOBJECT> GameObjectManager::GetGameObject(string tag)
 {
+    vector<LPGAMEOBJECT> list;
     for (auto it : gameObjects)
     {
         if (it.second->tag == tag)
         {
-            return it.second;
+            list.push_back(it.second);
         }
     }
-    return NULL;
+    return list;
 }
 
 GameObjectManager* GameObjectManager::GetInstance()

@@ -5,6 +5,7 @@
 #include "Goomba.h"
 #include "Koopa.h"
 #include "Camera.h"
+#include "YellowBrick.h"
 #include <unordered_map>
 
 using namespace std;
@@ -16,7 +17,7 @@ public:
 	void Update(float delta);
 	void Render();
 	LPGAMEOBJECT GetGameObject(int id);
-	LPGAMEOBJECT GetGameObject(string tag);
+	vector<LPGAMEOBJECT> GetGameObject(string tag);
 	static GameObjectManager* GetInstance();
 
 private:

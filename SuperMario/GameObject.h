@@ -31,7 +31,7 @@ public:
 	void AddAnimation(int figure, int state, int direction, LPANIMATION ani);
 	virtual void RenderAnimation() {
 	}
-
+	virtual void SetSprite(LPSPRITE sprite) {};
 	virtual void Update(float delta);
 	virtual void TransitionTo(BaseState* state);
 	virtual void ChangeFgiure(int figure) {
@@ -49,10 +49,11 @@ public:
 	bool isActivated = true;
 	string tag = "";
 	BaseState* state;
-protected:
-	
 	int height;
 	int width;
+protected:
+	
+	
 	LPKEYHANDLER keyHandler;
 	ANISMAP animations;
 };

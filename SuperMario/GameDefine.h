@@ -82,7 +82,7 @@
 #define ANI_KOOPA_RUN_RIGHT            401
 #define ANI_KOOPA_RUN_LEFT             402
 #define ANI_KOOPA_CRAZY                403
-#define ANI_KOOPA_STUN                 404
+#define ANI_KOOPA_IDLE                 404
 
 #define FIGURE_SMALL              1
 #define FIGURE_BIG                2
@@ -98,8 +98,7 @@
 #define STATE_CHANGED_FIGURE      5
 #define STATE_DEATH               6
 #define STATE_SIT                 7
-#define STATE_STUN                8
-#define STATE_CRAZY               9
+#define STATE_CRAZY               8
 // ACTION CONST
 #define SWITCH                    10
 #define HOLD                      11
@@ -107,9 +106,9 @@
 #pragma endregion
 #pragma region Sprites info
 // MARIO
-#define MARIO_BIG_WIDTH                 17
+#define MARIO_BIG_WIDTH                 12
 #define MARIO_BIG_HEIGHT                28
-#define MARIO_SMALL_WIDTH               14
+#define MARIO_SMALL_WIDTH               11
 #define MARIO_SMALL_HEIGHT              15
 
 // GOOMBA
@@ -120,12 +119,12 @@
 // KOOPA
 #define KOOPA_WIDTH                    15
 #define KOOPA_HEIGHT                   27
-#define KOOPA_STUN_HEIGHT              15
+#define KOOPA_IDLE_HEIGHT              15
 #pragma endregion width and height of sprites
 #pragma region Physics const
 // MARIO SPEED CONST
 #define MARIO_RUN_SPEED              7.0f
-#define MARIO_JUMP_SPEED             -28.0f
+#define MARIO_JUMP_SPEED             -27.0f
 #define MARIO_SUPER_RUN_SPEED        12.0f
 #define MARIO_SUPER_JUMP_SPEED       -35.0f
 #define MARIO_SHORT_JUMP_SPEED       -18.0f
@@ -157,5 +156,13 @@
 #define ID_MARIO                           1
 #define ID_GOOMBA_1                        2
 #define ID_KOOPA_1                         10
+#define ID_GROUND_1                        20
+#define ID_GROUND_2                        21
+#define ID_GROUND_3                        22
+#define ID_GROUND_4                        23
+#define ID_GROUND_5                        24
+#define ID_GROUND_6                        25
+#define ID_GROUND_7                        26
+#define ID_GROUND_8                        27
 #pragma endregion 
 

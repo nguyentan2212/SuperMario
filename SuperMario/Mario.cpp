@@ -55,7 +55,7 @@ void Mario::Update(float delta)
 	{
 		position.SetX((float)(BACKGROUND_TEXTURE_WIDTH - width));
 	}
-
+	
 	if (keyHandler->OnKeyDown(DIK_LSHIFT))
 	{
 		runSpeed = MARIO_SUPER_RUN_SPEED;
@@ -69,6 +69,13 @@ void Mario::Update(float delta)
 
 	if (IsGrounded)
 	{
+		LPGAMEOBJECT obj = CheckGrounded();
+		if (obj == NULL)
+		{
+			IsGrounded = false;
+			TransitionTo(new FallState());
+			DebugOut(L"[Mario.cpp] mario fall from ground\n");
+		}
 		if (keyHandler->OnKeyDown(DIK_SPACE) && !keyHandler->IsStillPressed(DIK_SPACE))
 		{
 			IsGrounded = false;
@@ -142,11 +149,23 @@ void Mario::Update(float delta)
 	}
 	else
 	{
-		if (position.GetY() >= 148 && dynamic_cast<FallState*>(this->state))
+		LPGAMEOBJECT obj = CheckGrounded();
+		if (obj != NULL && dynamic_cast<FallState*>(this->state))
 		{
 			IsGrounded = true;
-			position.SetY(148);
+			position.SetY(obj->position.GetY() - height);
 			TransitionTo(new IdleState());
+		}
+		else if (!dynamic_cast<FallState*>(this->state))
+		{
+			if (velocity.GetY() >= 0.0f)
+			{
+				TransitionTo(new FallState());
+			}
+			else if (velocity.GetY() > -20.0f && keyHandler->IsStillReleased(DIK_SPACE))
+			{
+				TransitionTo(new FallState());
+			}
 		}
 
 		if (keyHandler->OnKeyDown(DIK_RIGHT))
@@ -158,19 +177,7 @@ void Mario::Update(float delta)
 		{
 			direction = -1;
 			velocity.SetX(-runSpeed);
-		}
-		if (!dynamic_cast<FallState*>(this->state))
-		{
-			if (velocity.GetY() >= 0.0f) 
-			{
-				TransitionTo(new FallState());
-			}
-			else if (velocity.GetY() > -20.0f && keyHandler->IsStillReleased(DIK_SPACE))
-			{
-				TransitionTo(new FallState());
-			}
-		}
-		
+		}	
 	}
 	if (keyHandler->OnKeyDown(DIK_B))
 	{
@@ -187,6 +194,11 @@ void Mario::Update(float delta)
 	else if (keyHandler->OnKeyDown(DIK_F))
 	{
 		ChangeFigure(FIGURE_FIRE);
+	}
+	if (untouchableTimer > 0.0f)
+	{
+		untouchableTimer -= delta;
+		return;
 	}
 	CollisionCheck();
 
@@ -219,6 +231,7 @@ void Mario::ChangeFigure(int figure)
 	{
 		renderPosition = position;
 	}
+	untouchableTimer = ANI_LONG_TIME;
 	this->figure = figure;
 }
 
@@ -258,10 +271,13 @@ void Mario::CollisionCheck()
 		{
 			if (dynamic_cast<RunState*>(object->state))
 			{
-				object->renderPosition = object->position + Vector2D(0, 13);
-				object->TransitionTo(new CrazyState());
+				object->TransitionTo(new IdleState());
+				TransitionTo(new JumpState());
 			}
-			TransitionTo(new JumpState());
+		}
+		else if (dynamic_cast<IdleState*>(object->state))
+		{
+			object->TransitionTo(new CrazyState());
 		}
 		else
 		{
@@ -276,6 +292,43 @@ void Mario::CollisionCheck()
 			}
 		}
 	}
+	object = GameObjectManager::GetInstance()->GetGameObject(ID_GROUND_4);
+	colEvent = new CollisionEvent(this, object);
+	if (colEvent->IsColliding(this, object) && position.GetY() > object->position.GetY())
+	{
+		if (position.GetX() <= object->position.GetX())
+		{
+			position.SetX(object->position.GetX() - width);
+		}
+		else
+		{
+			position.SetX(object->position.GetX() + object->width);
+		}
 
+	}
 }
 
+LPGAMEOBJECT Mario::CheckGrounded()
+{
+	vector<LPGAMEOBJECT> list = GameObjectManager::GetInstance()->GetGameObject("Ground");
+	list.push_back(GameObjectManager::GetInstance()->GetGameObject(ID_GROUND_4));
+	for (auto obj : list)
+	{
+		LPCOLLISIONEVENT colEvent = new CollisionEvent(this, obj);
+		if (obj->position.GetY() - position.GetY() >= height)
+		{
+			if (colEvent->IsCollided() && dynamic_cast<FallState*>(this->state))
+			{
+				if (colEvent->direction == Vector2D::Down())
+				{
+					return obj;
+				}
+			}
+			else if (colEvent->IsColliding(this, obj))
+			{
+				return obj;
+			}
+		}
+	}
+	return NULL;
+}
