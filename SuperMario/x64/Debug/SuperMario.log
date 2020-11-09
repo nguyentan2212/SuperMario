@@ -1,6 +1,1 @@
-﻿  GameObjectManager.cpp
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-C:\Users\ASUS\source\repos\SuperMario\SuperMario\YellowBrick.h(10,18): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\source\repos\SuperMario\SuperMario\YellowBrick.h(11,17): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\ASUS\source\repos\SuperMario\SuperMario\GameObjectManager.cpp(32,44): warning C4305: 'argument': truncation from 'double' to 'float'
-  SuperMario.vcxproj -> C:\Users\ASUS\source\repos\SuperMario\x64\Debug\SuperMario.exe
+﻿  SuperMario.vcxproj -> C:\Users\ASUS\source\repos\SuperMario\x64\Debug\SuperMario.exe
