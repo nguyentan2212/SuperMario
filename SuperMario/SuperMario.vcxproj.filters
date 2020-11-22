@@ -26,6 +26,9 @@
     <Image Include="SuperMario.ico">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Resources\mario.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -43,9 +46,6 @@
     <ClInclude Include="Framework\GameEngine\DirectXGame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\Utilities\AniTuple.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Framework\Utilities\Debug.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -58,13 +58,19 @@
     <ClInclude Include="MarioGame\MarioGame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\Graphic\Drawing\DrawDevice.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\Graphic\Texture\Texture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Framework\Utilities\TinyXml2\tinyxml2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Utilities\Vector2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Graphic\Sprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Graphic\DrawDevice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Utilities\StringHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -87,17 +93,20 @@
     <ClCompile Include="MarioGame\MarioGame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Framework\Graphic\Drawing\DrawDevice.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\Graphic\Texture\Texture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Framework\Utilities\TinyXml2\tinyxml2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Utilities\Vector2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Graphic\Sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Graphic\DrawDevice.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="Resources\XmlFiles\MarioGameTextures.xml" />
+    <None Include="Resources\GameObjects.json" />
   </ItemGroup>
 </Project>

@@ -1,7 +1,12 @@
 #pragma once
+#include <fstream>
 #include "../Framework/GameEngine/DirectXGame.h"
 #include "../Resource.h"
-#include "../Framework/Utilities/TinyXml2/tinyxml2.h"
+#include "../Framework/Utilities/json.hpp"
+#include "../Framework/Utilities/StringHelper.h"
+
+using json = nlohmann::json;
+using namespace std;
 
 class MarioGame : public DirectXGame, public Singleton<MarioGame>
 {
@@ -11,7 +16,7 @@ private:
 	void KeyHandling();
 	void Update(double dt);
 	void Render();
-	void LoadTexture(char* textureXmlPath);
+	void LoadGameObjects(string jsonPath);
 	MarioGame();
 	
 public:

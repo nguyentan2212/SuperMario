@@ -149,6 +149,7 @@
     <ResourceCompile Include="SuperMario.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Resources\mario.png" />
     <Image Include="small.ico" />
     <Image Include="SuperMario.ico" />
   </ItemGroup>
@@ -156,12 +157,13 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="Framework\GameEngine\DirectXGame.h" />
     <ClInclude Include="Framework\GameEngine\Window.h" />
-    <ClInclude Include="Framework\Graphic\Drawing\DrawDevice.h" />
-    <ClInclude Include="Framework\Graphic\Texture\Texture.h" />
-    <ClInclude Include="Framework\Utilities\AniTuple.h" />
+    <ClInclude Include="Framework\Graphic\DrawDevice.h" />
+    <ClInclude Include="Framework\Graphic\Sprite.h" />
     <ClInclude Include="Framework\Utilities\Debug.h" />
     <ClInclude Include="Framework\Utilities\Singleton.h" />
+    <ClInclude Include="Framework\Utilities\StringHelper.h" />
     <ClInclude Include="Framework\Utilities\TinyXml2\tinyxml2.h" />
+    <ClInclude Include="Framework\Utilities\Vector2D.h" />
     <ClInclude Include="MarioGame\MarioGame.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SuperMario.h" />
@@ -170,18 +172,17 @@
   <ItemGroup>
     <ClCompile Include="Framework\GameEngine\DirectXGame.cpp" />
     <ClCompile Include="Framework\GameEngine\Window.cpp" />
-    <ClCompile Include="Framework\Graphic\Drawing\DrawDevice.cpp" />
-    <ClCompile Include="Framework\Graphic\Texture\Texture.cpp" />
+    <ClCompile Include="Framework\Graphic\DrawDevice.cpp" />
+    <ClCompile Include="Framework\Graphic\Sprite.cpp" />
     <ClCompile Include="Framework\Utilities\Debug.cpp" />
     <ClCompile Include="Framework\Utilities\Singleton.cpp" />
     <ClCompile Include="Framework\Utilities\TinyXml2\tinyxml2.cpp" />
+    <ClCompile Include="Framework\Utilities\Vector2D.cpp" />
     <ClCompile Include="MarioGame\MarioGame.cpp" />
     <ClCompile Include="SuperMario.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="Resources\XmlFiles\MarioGameTextures.xml">
-      <DeploymentContent>false</DeploymentContent>
-    </Xml>
+    <None Include="Resources\GameObjects.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

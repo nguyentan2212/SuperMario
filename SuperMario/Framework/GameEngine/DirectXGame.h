@@ -4,8 +4,8 @@
 #include <unordered_map>
 #include "../Utilities/Singleton.h"
 #include "Window.h"
-#include "../Graphic/Drawing/DrawDevice.h"
-#include "../Graphic/Texture/Texture.h"
+#include "../Graphic/DrawDevice.h"
+#include "../Graphic/Sprite.h"
 
 class DirectXGame 
 {
@@ -24,14 +24,14 @@ protected:
 	LPCWSTR title;                          // window's title
 
 	LPDRAWDEVICE drawDevice;
-
-	std::unordered_map<std::string, LPTEXTURE> textureMap;
+	
+	std::unordered_map<std::string, LPSPRITE> spriteMap;
 
 	virtual void SetInfo() = 0;
 	virtual void KeyHandling() = 0;
 	virtual void Update(double dt) = 0;
 	virtual void Render() = 0;
-	virtual void LoadTexture(char* textureXmlPath) = 0;
+	virtual void LoadGameObjects(std::string jsonPath) = 0;
 public:
 	virtual void GameInit(HINSTANCE _hInstance, int nCmdShow);
 	virtual void Run();

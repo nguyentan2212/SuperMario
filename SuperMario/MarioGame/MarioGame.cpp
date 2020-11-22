@@ -8,9 +8,8 @@ MarioGame::MarioGame()
 void MarioGame::GameInit(HINSTANCE _hInstance, int nCmdShow)
 {
 	DirectXGame::GameInit(_hInstance, nCmdShow);
-	Texture::SetDevice(drawDevice->GetDevice());
-	char path[] = "Resources/XmlFiles/MarioGameTextures.xml";
-	LoadTexture(path);
+	
+	LoadGameObjects("Resources/animations.json");
 }
 
 void MarioGame::SetInfo()
@@ -34,49 +33,40 @@ void MarioGame::Update(double dt)
 
 void MarioGame::Render()
 {
-	LPTEXTURE tex = textureMap["mario"];
 	drawDevice->Begin();
-	RECT r;
-	r.left = 0;
-	r.top = 0;
-	r.right = 16;
-	r.bottom = 16;
-	drawDevice->Draw(0, 0, tex->GetTexture(), r);
+	spriteMap["SuperMarioFall"]->Draw(Vector2D(10, 10));
 	drawDevice->End();
 }
 
-void MarioGame::LoadTexture(char* textureXmlPath)
+void MarioGame::LoadGameObjects(string jsonPath)
 {
-    tinyxml2::XMLDocument doc;
-	doc.LoadFile(textureXmlPath);
-
-	tinyxml2::XMLElement* root = doc.RootElement();
-	tinyxml2::XMLElement* textureNode = nullptr;
-	for (textureNode = root->FirstChildElement(); textureNode != NULL; textureNode = textureNode->NextSiblingElement())
+	fstream f(jsonPath, ios::in);
+	json j;
+	f >> j;
+	json objects = j["objects"];
+	for (auto& obj : objects)
 	{
-		const char* value = textureNode->FirstAttribute()->Value();
-		std::string key(value);
-
-		tinyxml2::XMLElement* pathNode = textureNode->FirstChildElement();
-		value = pathNode->GetText();
-		wchar_t wtext[20];
-		size_t outSize;
-		mbstowcs_s(&outSize, wtext, value, strlen(value) + 1);//Plus null
-		LPWSTR path = wtext;
-		
-		tinyxml2::XMLElement* colorNode = pathNode->NextSiblingElement();
-
-		colorNode = colorNode->FirstChildElement();
-		int r = pathNode->IntText();
-		
-
-		colorNode = colorNode->NextSiblingElement();
-		int g = pathNode->IntText();
-		
-		colorNode = colorNode->NextSiblingElement();
-		int b = pathNode->IntText();
-		
-		LPTEXTURE texture = new Texture(path, D3DCOLOR_XRGB(r, g, b));
-		textureMap[key] = texture;
+		string configFolder = obj["configFolder"];
+		configFolder = "Resources/" + configFolder;
+		json animations = obj["animations"];
+		D3DCOLOR color = D3DCOLOR_XRGB(68, 145, 190);
+		for (auto& ani : animations)
+		{
+			string name = ani["name"];
+			string folder = ani["folder"];
+			folder = configFolder + folder;
+			json sprites = ani["sprites"];
+			for (auto& item : sprites)
+			{
+				string path = item["fileName"];
+				path = folder + path;
+				int w = item["w"];
+				int h = item["h"];
+				LPSPRITE sprite = new Sprite(name, color, w, h, path);
+				spriteMap[name] = sprite;
+			}
+		}	
 	}
+	
+	
 }

@@ -5,7 +5,8 @@ void DirectXGame::GameInit(HINSTANCE _hInstance, int nCmdShow)
 	hInstance = _hInstance;
 	SetInfo();
 	mainWindow = new Window(hInstance, nCmdShow, icon, iconSm, windowHeight, windowWidth, title);
-	drawDevice = new DrawDevice(mainWindow->GetWindow());
+	drawDevice = DrawDevice::GetInstance();
+	drawDevice->Init(mainWindow->GetWindow());
 }
 
 

@@ -1,6 +1,6 @@
 #include "DrawDevice.h"
 
-DrawDevice::DrawDevice(HWND hWnd)
+void DrawDevice::Init(HWND hWnd)
 {
 	LPDIRECT3D9 d3d = Direct3DCreate9(D3D_SDK_VERSION);
 	D3DPRESENT_PARAMETERS d3dpp;
@@ -35,12 +35,10 @@ DrawDevice::DrawDevice(HWND hWnd)
 	D3DXCreateSprite(d3ddv, &spriteHandler);
 }
 
-void DrawDevice::Draw(double x, double y, LPDIRECT3DTEXTURE9 texture, RECT resource)
+void DrawDevice::Draw(D3DXVECTOR3 drawPosition, LPDIRECT3DTEXTURE9 texture, RECT resource, DWORD flag)
 {
-	D3DXVECTOR3 renderPos(x, y, 0);
-	
-	spriteHandler->Begin(NULL);
-	spriteHandler->Draw(texture, &resource, NULL, &renderPos, D3DCOLOR_XRGB(255, 255, 255));
+	spriteHandler->Begin(flag);
+	spriteHandler->Draw(texture, &resource, NULL, &drawPosition, D3DCOLOR_XRGB(255, 255, 255));
 	spriteHandler->End();
 	
 }
