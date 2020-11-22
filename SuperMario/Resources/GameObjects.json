@@ -1,0 +1,124 @@
+{
+  "object": [
+    {
+      "name": "Mario",
+      "configFolder": "Mario/",
+      "animations": [
+        {
+          "name": "SuperMarioFall",
+          "directory": "SuperMario/Fall/",
+          "sprites": [
+            {
+              "fileName": "SuperMario_1_2.png",
+              "w": 16,
+              "h": 32
+            }
+          ]
+        },
+        {
+          "name": "SuperMarioHold",
+          "directory": "SuperMario/Hold/",
+          "sprites": [
+            {
+              "fileName": "SuperMario_1_7.png",
+              "w": 16,
+              "h": 32
+            }
+          ]
+        },
+        {
+          "name": "SuperMarioHoldWalk",
+          "directory": "SuperMario/HoldWalk/",
+          "sprites": [
+            {
+              "fileName": "SuperMario_1_8.png",
+              "w": 16,
+              "h": 32
+            },
+            {
+              "fileName": "SuperMario_1_9.png",
+              "w": 16,
+              "h": 32
+            }
+          ]
+        },
+        {
+          "name": "SuperMarioIdle",
+          "directory": "SuperMario/Idle/",
+          "sprites": [
+            {
+              "fileName": "SuperMario_1_0.png",
+              "w": 16,
+              "h": 32
+            }
+          ]
+        },
+        {
+          "name": "SuperMarioJump",
+          "directory": "SuperMario/Jump/",
+          "sprites": [
+            {
+              "fileName": "SuperMario_1_12.png",
+              "w": 16,
+              "h": 32
+            }
+          ]
+        },
+        {
+          "name": "SuperMarioKick",
+          "directory": "SuperMario/Kick/",
+          "sprites": [
+            {
+              "fileName": "SuperMario_2_12.png",
+              "w": 24,
+              "h": 32
+            }
+          ]
+        },
+        {
+          "name": "SuperMarioSit",
+          "directory": "SuperMario/Sit/",
+          "sprite": [
+            {
+              "fileName": "SuperMario_3_0.png",
+              "w": 16,
+              "h": 24
+            },
+            {
+              "fileName": "SuperMario_3_1.png",
+              "w": 16,
+              "h": 24
+            }
+          ]
+        },
+        {
+          "name": "SuperMarioTurn",
+          "directory": "SuperMario/Turn/",
+          "sprite": [
+            {
+              "fileName": "SuperMario_1_4.png",
+              "w": 16,
+              "h": 32
+            }
+          ]
+        },
+        {
+          "name": "SuperMarioWalk",
+          "directory": "SuperMario/Walk/",
+          "sprite": [
+            {
+              "fileName": "SuperMario_1_1.png",
+              "w": 16,
+              "h": 32
+            },
+            {
+              "fileName": "SuperMario_1_2.png",
+              "w": 16,
+              "h": 32
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

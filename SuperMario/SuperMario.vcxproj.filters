@@ -13,244 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\Animation Header Files">
-      <UniqueIdentifier>{0a298880-6da1-4f4b-8ed4-6121075b310f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Game Object Header Files">
-      <UniqueIdentifier>{3524545f-676b-4ca7-8172-2a73078c73c9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\HID System Header Files">
-      <UniqueIdentifier>{ab66a227-c74e-43ba-a7cc-3bbd8db1313b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Sprite Header Files">
-      <UniqueIdentifier>{4b29542d-e5dd-4b98-b3ef-376a3af1c9b0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Extension Header Files">
-      <UniqueIdentifier>{54bd1402-651c-474e-900a-e0a3351cd90a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Game Object Header Files\State Header Files">
-      <UniqueIdentifier>{d9906b98-e88f-4212-a5af-3e0e17a258d2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Animation Source Files">
-      <UniqueIdentifier>{69f3f2c9-c903-4708-99a6-c4e6fce6f120}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Game Object Source Files">
-      <UniqueIdentifier>{f83f633a-e046-45ff-83a4-746c818464bf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\HID System Source Files">
-      <UniqueIdentifier>{d1fd1c44-665f-475f-8b1b-f25ef7b4bc02}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Extension Source Files">
-      <UniqueIdentifier>{b39bd7e3-5943-43bc-b0cb-3fcac350b373}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Sprite Source Files">
-      <UniqueIdentifier>{55c76719-6aa7-40a2-930a-078ab6eb9dcd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Game Object Source Files\State Source Files">
-      <UniqueIdentifier>{00723bd8-b563-4efc-90ad-6089fa98e3bc}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="SuperMario.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Animation.h">
-      <Filter>Header Files\Animation Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AnimationFrame.h">
-      <Filter>Header Files\Animation Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AnimationManager.h">
-      <Filter>Header Files\Animation Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Sprite.h">
-      <Filter>Header Files\Sprite Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SpriteHandler.h">
-      <Filter>Header Files\Sprite Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SpriteManager.h">
-      <Filter>Header Files\Sprite Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Header Files\Game Object Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Mario.h">
-      <Filter>Header Files\Game Object Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>Header Files\Game Object Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Header Files\HID System Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="KeyHandler.h">
-      <Filter>Header Files\HID System Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Debug.h">
-      <Filter>Header Files\Extension Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="framework.h">
-      <Filter>Header Files\Extension Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>Header Files\Extension Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector2D.h">
-      <Filter>Header Files\Extension Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameDefine.h">
-      <Filter>Header Files\Extension Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureManager.h">
-      <Filter>Header Files\Sprite Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BaseState.h">
-      <Filter>Header Files\Game Object Header Files\State Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IdleState.h">
-      <Filter>Header Files\Game Object Header Files\State Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="JumpState.h">
-      <Filter>Header Files\Game Object Header Files\State Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RunState.h">
-      <Filter>Header Files\Game Object Header Files\State Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="State.h">
-      <Filter>Header Files\Game Object Header Files\State Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ChangedFigureState.h">
-      <Filter>Header Files\Game Object Header Files\State Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DeathState.h">
-      <Filter>Header Files\Game Object Header Files\State Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FallState.h">
-      <Filter>Header Files\Game Object Header Files\State Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObjectManager.h">
-      <Filter>Header Files\Game Object Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Goomba.h">
-      <Filter>Header Files\Game Object Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CollisionEvent.h">
-      <Filter>Header Files\Extension Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AniTuple.h">
-      <Filter>Header Files\Extension Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Header Files\Extension Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="KickAction.h">
-      <Filter>Header Files\Game Object Header Files\State Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SitState.h">
-      <Filter>Header Files\Game Object Header Files\State Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SwitchAction.h">
-      <Filter>Header Files\Game Object Header Files\State Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Koopa.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CrazyState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="YellowBrick.h">
-      <Filter>Header Files\Game Object Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="SuperMario.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Animation.cpp">
-      <Filter>Source Files\Animation Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AnimationManager.cpp">
-      <Filter>Source Files\Animation Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Source Files\Game Object Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files\Game Object Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Mario.cpp">
-      <Filter>Source Files\Game Object Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Source Files\HID System Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Debug.cpp">
-      <Filter>Source Files\Extension Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Vector2D.cpp">
-      <Filter>Source Files\Extension Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Sprite.cpp">
-      <Filter>Source Files\Sprite Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SpriteHandler.cpp">
-      <Filter>Source Files\Sprite Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SpriteManager.cpp">
-      <Filter>Source Files\Sprite Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureManager.cpp">
-      <Filter>Source Files\Sprite Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="IdleState.cpp">
-      <Filter>Source Files\Game Object Source Files\State Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="JumpState.cpp">
-      <Filter>Source Files\Game Object Source Files\State Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="RunState.cpp">
-      <Filter>Source Files\Game Object Source Files\State Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FallState.cpp">
-      <Filter>Source Files\Game Object Source Files\State Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DeathState.cpp">
-      <Filter>Source Files\Game Object Source Files\State Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ChangedFigureState.cpp">
-      <Filter>Source Files\Game Object Source Files\State Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObjectManager.cpp">
-      <Filter>Source Files\Game Object Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Goomba.cpp">
-      <Filter>Source Files\Game Object Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CollisionEvent.cpp">
-      <Filter>Source Files\Extension Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="KeyHandler.cpp">
-      <Filter>Source Files\HID System Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SitState.cpp">
-      <Filter>Source Files\Game Object Source Files\State Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="KickAction.cpp">
-      <Filter>Source Files\Game Object Source Files\State Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SwitchAction.cpp">
-      <Filter>Source Files\Game Object Source Files\State Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Koopa.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CrazyState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="YellowBrick.cpp">
-      <Filter>Source Files\Game Object Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="SuperMario.rc">
@@ -264,17 +26,87 @@
     <Image Include="SuperMario.ico">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="mario.png">
+    <Image Include="Resources\mario.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="misc.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="background.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="goomba.png">
-      <Filter>Resource Files</Filter>
-    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SuperMario.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\GameEngine\DirectXGame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Utilities\Debug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Utilities\Singleton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\GameEngine\Window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MarioGame\MarioGame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Utilities\TinyXml2\tinyxml2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Utilities\Vector2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Graphic\Sprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Graphic\DrawDevice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Utilities\StringHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SuperMario.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\GameEngine\DirectXGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Utilities\Debug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Utilities\Singleton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\GameEngine\Window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MarioGame\MarioGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Utilities\TinyXml2\tinyxml2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Utilities\Vector2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Graphic\Sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Graphic\DrawDevice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GameObjects.json" />
   </ItemGroup>
 </Project>

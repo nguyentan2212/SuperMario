@@ -16,12 +16,6 @@
 #include <d3d9.h>
 #include <d3dx9.h>
 
-#include "Game.h"
-#include "Debug.h"
-#include "Animation.h"
-#include "TextureManager.h"
-#include "SpriteManager.h"
-#include "KeyHandler.h"
-#include "AnimationManager.h"
-#include "SpriteHandler.h"
-#include "GameObjectManager.h"
+#include "Framework/GameEngine/DirectXGame.h"
+#include "MarioGame/MarioGame.h"
+

@@ -121,6 +121,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -145,85 +146,43 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Animation.h" />
-    <ClInclude Include="AniTuple.h" />
-    <ClInclude Include="BaseState.h" />
-    <ClInclude Include="Camera.h" />
-    <ClInclude Include="ChangedFigureState.h" />
-    <ClInclude Include="CollisionEvent.h" />
-    <ClInclude Include="CrazyState.h" />
-    <ClInclude Include="DeathState.h" />
-    <ClInclude Include="FallState.h" />
-    <ClInclude Include="GameDefine.h" />
-    <ClInclude Include="AnimationFrame.h" />
-    <ClInclude Include="AnimationManager.h" />
-    <ClInclude Include="Debug.h" />
-    <ClInclude Include="framework.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="GameObjectManager.h" />
-    <ClInclude Include="Goomba.h" />
-    <ClInclude Include="IdleState.h" />
-    <ClInclude Include="JumpState.h" />
-    <ClInclude Include="KeyHandler.h" />
-    <ClInclude Include="KickAction.h" />
-    <ClInclude Include="Koopa.h" />
-    <ClInclude Include="Mario.h" />
-    <ClInclude Include="Resource.h" />
-    <ClInclude Include="RunState.h" />
-    <ClInclude Include="SitState.h" />
-    <ClInclude Include="Sprite.h" />
-    <ClInclude Include="SpriteHandler.h" />
-    <ClInclude Include="SpriteManager.h" />
-    <ClInclude Include="State.h" />
-    <ClInclude Include="SuperMario.h" />
-    <ClInclude Include="SwitchAction.h" />
-    <ClInclude Include="targetver.h" />
-    <ClInclude Include="TextureManager.h" />
-    <ClInclude Include="Vector2D.h" />
-    <ClInclude Include="YellowBrick.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Animation.cpp" />
-    <ClCompile Include="AnimationManager.cpp" />
-    <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="ChangedFigureState.cpp" />
-    <ClCompile Include="CollisionEvent.cpp" />
-    <ClCompile Include="CrazyState.cpp" />
-    <ClCompile Include="DeathState.cpp" />
-    <ClCompile Include="Debug.cpp" />
-    <ClCompile Include="FallState.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="GameObjectManager.cpp" />
-    <ClCompile Include="Goomba.cpp" />
-    <ClCompile Include="IdleState.cpp" />
-    <ClCompile Include="JumpState.cpp" />
-    <ClCompile Include="KeyHandler.cpp" />
-    <ClCompile Include="KickAction.cpp" />
-    <ClCompile Include="Koopa.cpp" />
-    <ClCompile Include="Mario.cpp" />
-    <ClCompile Include="RunState.cpp" />
-    <ClCompile Include="SitState.cpp" />
-    <ClCompile Include="Sprite.cpp" />
-    <ClCompile Include="SpriteHandler.cpp" />
-    <ClCompile Include="SpriteManager.cpp" />
-    <ClCompile Include="SuperMario.cpp" />
-    <ClCompile Include="SwitchAction.cpp" />
-    <ClCompile Include="TextureManager.cpp" />
-    <ClCompile Include="Vector2D.cpp" />
-    <ClCompile Include="YellowBrick.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ResourceCompile Include="SuperMario.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="background.png" />
-    <Image Include="goomba.png" />
-    <Image Include="mario.png" />
-    <Image Include="misc.png" />
+    <Image Include="Resources\mario.png" />
     <Image Include="small.ico" />
     <Image Include="SuperMario.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="Framework\GameEngine\DirectXGame.h" />
+    <ClInclude Include="Framework\GameEngine\Window.h" />
+    <ClInclude Include="Framework\Graphic\DrawDevice.h" />
+    <ClInclude Include="Framework\Graphic\Sprite.h" />
+    <ClInclude Include="Framework\Utilities\Debug.h" />
+    <ClInclude Include="Framework\Utilities\Singleton.h" />
+    <ClInclude Include="Framework\Utilities\StringHelper.h" />
+    <ClInclude Include="Framework\Utilities\TinyXml2\tinyxml2.h" />
+    <ClInclude Include="Framework\Utilities\Vector2D.h" />
+    <ClInclude Include="MarioGame\MarioGame.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="SuperMario.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Framework\GameEngine\DirectXGame.cpp" />
+    <ClCompile Include="Framework\GameEngine\Window.cpp" />
+    <ClCompile Include="Framework\Graphic\DrawDevice.cpp" />
+    <ClCompile Include="Framework\Graphic\Sprite.cpp" />
+    <ClCompile Include="Framework\Utilities\Debug.cpp" />
+    <ClCompile Include="Framework\Utilities\Singleton.cpp" />
+    <ClCompile Include="Framework\Utilities\TinyXml2\tinyxml2.cpp" />
+    <ClCompile Include="Framework\Utilities\Vector2D.cpp" />
+    <ClCompile Include="MarioGame\MarioGame.cpp" />
+    <ClCompile Include="SuperMario.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GameObjects.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
