@@ -157,6 +157,7 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="Framework\GameEngine\DirectXGame.h" />
     <ClInclude Include="Framework\GameEngine\Window.h" />
+    <ClInclude Include="Framework\Graphic\Animation.h" />
     <ClInclude Include="Framework\Graphic\DrawDevice.h" />
     <ClInclude Include="Framework\Graphic\Sprite.h" />
     <ClInclude Include="Framework\Utilities\Debug.h" />
@@ -172,6 +173,7 @@
   <ItemGroup>
     <ClCompile Include="Framework\GameEngine\DirectXGame.cpp" />
     <ClCompile Include="Framework\GameEngine\Window.cpp" />
+    <ClCompile Include="Framework\Graphic\Animation.cpp" />
     <ClCompile Include="Framework\Graphic\DrawDevice.cpp" />
     <ClCompile Include="Framework\Graphic\Sprite.cpp" />
     <ClCompile Include="Framework\Utilities\Debug.cpp" />

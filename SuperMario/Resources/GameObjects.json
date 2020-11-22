@@ -1,12 +1,12 @@
 {
-  "object": [
+  "objects": [
     {
       "name": "Mario",
       "configFolder": "Mario/",
       "animations": [
         {
           "name": "SuperMarioFall",
-          "directory": "SuperMario/Fall/",
+          "folder": "Animations/SuperMario/Fall/",
           "sprites": [
             {
               "fileName": "SuperMario_1_2.png",
@@ -17,7 +17,7 @@
         },
         {
           "name": "SuperMarioHold",
-          "directory": "SuperMario/Hold/",
+          "folder": "Animations/SuperMario/Hold/",
           "sprites": [
             {
               "fileName": "SuperMario_1_7.png",
@@ -28,7 +28,7 @@
         },
         {
           "name": "SuperMarioHoldWalk",
-          "directory": "SuperMario/HoldWalk/",
+          "folder": "Animations/SuperMario/HoldWalk/",
           "sprites": [
             {
               "fileName": "SuperMario_1_8.png",
@@ -44,7 +44,7 @@
         },
         {
           "name": "SuperMarioIdle",
-          "directory": "SuperMario/Idle/",
+          "folder": "Animations/SuperMario/Idle/",
           "sprites": [
             {
               "fileName": "SuperMario_1_0.png",
@@ -55,7 +55,7 @@
         },
         {
           "name": "SuperMarioJump",
-          "directory": "SuperMario/Jump/",
+          "folder": "Animations/SuperMario/Jump/",
           "sprites": [
             {
               "fileName": "SuperMario_1_12.png",
@@ -66,7 +66,7 @@
         },
         {
           "name": "SuperMarioKick",
-          "directory": "SuperMario/Kick/",
+          "folder": "Animations/SuperMario/Kick/",
           "sprites": [
             {
               "fileName": "SuperMario_2_12.png",
@@ -77,8 +77,8 @@
         },
         {
           "name": "SuperMarioSit",
-          "directory": "SuperMario/Sit/",
-          "sprite": [
+          "folder": "Animations/SuperMario/Sit/",
+          "sprites": [
             {
               "fileName": "SuperMario_3_0.png",
               "w": 16,
@@ -93,8 +93,8 @@
         },
         {
           "name": "SuperMarioTurn",
-          "directory": "SuperMario/Turn/",
-          "sprite": [
+          "folder": "Animations/SuperMario/Turn/",
+          "sprites": [
             {
               "fileName": "SuperMario_1_4.png",
               "w": 16,
@@ -104,8 +104,13 @@
         },
         {
           "name": "SuperMarioWalk",
-          "directory": "SuperMario/Walk/",
-          "sprite": [
+          "folder": "Animations/SuperMario/Walk/",
+          "sprites": [
+            {
+              "fileName": "SuperMario_1_0.png",
+              "w": 16,
+              "h": 32
+            },
             {
               "fileName": "SuperMario_1_1.png",
               "w": 16,
@@ -113,6 +118,11 @@
             },
             {
               "fileName": "SuperMario_1_2.png",
+              "w": 16,
+              "h": 32
+            },
+            {
+              "fileName": "SuperMario_1_13.png",
               "w": 16,
               "h": 32
             }

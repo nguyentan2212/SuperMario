@@ -5,7 +5,7 @@
 #include "../Utilities/Singleton.h"
 #include "Window.h"
 #include "../Graphic/DrawDevice.h"
-#include "../Graphic/Sprite.h"
+#include "../Graphic/Animation.h"
 
 class DirectXGame 
 {
@@ -25,7 +25,7 @@ protected:
 
 	LPDRAWDEVICE drawDevice;
 	
-	std::unordered_map<std::string, LPSPRITE> spriteMap;
+	std::unordered_map<std::string, LPANIMATION> animationsMap;
 
 	virtual void SetInfo() = 0;
 	virtual void KeyHandling() = 0;

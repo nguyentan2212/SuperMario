@@ -15,8 +15,9 @@ public:
 	void Init(HWND hWnd);
 	void Begin() {
 		d3ddv->BeginScene();
+		d3ddv->ColorFill(backBuffer, NULL, D3DCOLOR_XRGB(255, 255, 255));
 	}
-	void Draw(D3DXVECTOR3 drawPosition, LPDIRECT3DTEXTURE9 texture, RECT resource, DWORD flag = D3DXSPRITE_ALPHABLEND);
+	void Draw(D3DXVECTOR3 drawPosition, LPDIRECT3DTEXTURE9 texture, RECT resource, D3DXVECTOR3 center = D3DXVECTOR3(0, 0, 0), DWORD flag = D3DXSPRITE_ALPHABLEND);
 	void End() {
 		d3ddv->EndScene();
 		d3ddv->Present(NULL, NULL, NULL, NULL);
@@ -24,5 +25,12 @@ public:
 	LPDIRECT3DDEVICE9 GetDevice() {
 		return d3ddv;
 	}
+	void Flip() {
+		D3DXMATRIX matScale;
+		D3DXMatrixScaling(&matScale, -1.0f, 1.0f, 0.0f);
+		spriteHandler->SetTransform(&matScale);
+		isFlip = !isFlip;
+	}
+	bool isFlip = false;
 };
 typedef DrawDevice* LPDRAWDEVICE;

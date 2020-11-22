@@ -35,10 +35,14 @@ void DrawDevice::Init(HWND hWnd)
 	D3DXCreateSprite(d3ddv, &spriteHandler);
 }
 
-void DrawDevice::Draw(D3DXVECTOR3 drawPosition, LPDIRECT3DTEXTURE9 texture, RECT resource, DWORD flag)
+void DrawDevice::Draw(D3DXVECTOR3 drawPosition, LPDIRECT3DTEXTURE9 texture, RECT resource, D3DXVECTOR3 center, DWORD flag)
 {
+	if (isFlip)
+	{
+		drawPosition.x *= -1;
+	}
 	spriteHandler->Begin(flag);
-	spriteHandler->Draw(texture, &resource, NULL, &drawPosition, D3DCOLOR_XRGB(255, 255, 255));
+	spriteHandler->Draw(texture, &resource, &center, &drawPosition, D3DCOLOR_XRGB(255, 255, 255));
 	spriteHandler->End();
 	
 }

@@ -34,17 +34,15 @@ void Sprite::LoadTexture(std::string imagePath, D3DCOLOR transparentColor)
 	}
 }
 
-Sprite::Sprite(std::string name, D3DCOLOR transparentColor, int w, int h, std::string imagePath)
+Sprite::Sprite(D3DCOLOR transparentColor, int w, int h, std::string imagePath)
 {
-	this->name = name;
 	LoadTexture(imagePath, transparentColor);
 	size.SetVector(w, h);
 	
 }
 
-Sprite::Sprite(std::string name, D3DCOLOR transparentColor, Vector2D size, std::string imagePath)
+Sprite::Sprite(D3DCOLOR transparentColor, Vector2D size, std::string imagePath)
 {
-	this->name = name;
 	LoadTexture(imagePath, transparentColor);
 	this->size.SetVector(size);
 	
@@ -58,5 +56,8 @@ void Sprite::Draw(Vector2D drawPosition)
 	src.left = 0;
 	src.bottom = size.GetY();
 	src.right = size.GetX();
-	DrawDevice::GetInstance()->Draw(drawPos, texture, src);
+	float x = size.GetX() / 2.0;
+	float y = size.GetY() / 2.0;
+	D3DXVECTOR3 center(x, y, 0);
+	DrawDevice::GetInstance()->Draw(drawPos, texture, src, center);
 }

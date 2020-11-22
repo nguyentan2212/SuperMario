@@ -3,7 +3,6 @@
 #include "../Framework/GameEngine/DirectXGame.h"
 #include "../Resource.h"
 #include "../Framework/Utilities/json.hpp"
-#include "../Framework/Utilities/StringHelper.h"
 
 using json = nlohmann::json;
 using namespace std;
@@ -18,7 +17,7 @@ private:
 	void Render();
 	void LoadGameObjects(string jsonPath);
 	MarioGame();
-	
+	float t = 0;
 public:
 	void GameInit(HINSTANCE _hInstance, int nCmdShow);	
 };

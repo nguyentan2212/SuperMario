@@ -9,7 +9,7 @@ void MarioGame::GameInit(HINSTANCE _hInstance, int nCmdShow)
 {
 	DirectXGame::GameInit(_hInstance, nCmdShow);
 	
-	LoadGameObjects("Resources/animations.json");
+	LoadGameObjects("Resources/GameObjects.json");
 }
 
 void MarioGame::SetInfo()
@@ -19,7 +19,7 @@ void MarioGame::SetInfo()
 	iconSm = IDI_SMALL;
 	windowHeight = 600;
 	windowWidth = 600;
-	fps = 60;
+	fps = 7;
 	mspf = 1000.0f / 60.0f;
 }
 
@@ -29,12 +29,15 @@ void MarioGame::KeyHandling()
 
 void MarioGame::Update(double dt)
 {
+	deltaTime = dt;
+	LPANIMATION animation = animationsMap["SuperMarioWalk"];
 }
 
 void MarioGame::Render()
-{
+{	
 	drawDevice->Begin();
-	spriteMap["SuperMarioFall"]->Draw(Vector2D(10, 10));
+	t += 10;
+	animationsMap["SuperMarioWalk"]->Render(Vector2D(100, 100));	
 	drawDevice->End();
 }
 
@@ -53,6 +56,7 @@ void MarioGame::LoadGameObjects(string jsonPath)
 		for (auto& ani : animations)
 		{
 			string name = ani["name"];
+			LPANIMATION animation = new Animation(fps, name);
 			string folder = ani["folder"];
 			folder = configFolder + folder;
 			json sprites = ani["sprites"];
@@ -62,11 +66,11 @@ void MarioGame::LoadGameObjects(string jsonPath)
 				path = folder + path;
 				int w = item["w"];
 				int h = item["h"];
-				LPSPRITE sprite = new Sprite(name, color, w, h, path);
-				spriteMap[name] = sprite;
+				LPSPRITE sprite = new Sprite(color, w, h, path);
+				animation->AddSprite(sprite);
 			}
+			animationsMap[name] = animation;
 		}	
 	}
-	
-	
+	//drawDevice->Flip();
 }
